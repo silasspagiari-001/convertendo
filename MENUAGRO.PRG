@@ -178,7 +178,12 @@ MenuList := {}
    _CORPROMPT_ = "r/w,W+/N"
    _SOMBRA_   = "N*/N+"
    _COREDICAO_ = "N/W,N/GR*,,,N/W*"  // "N/W,N/W*"  // COR DOS CAMPOS GET
-   _CORTELAS_  = "B/W"        // COR DO FUNDO E DAS LETRAS FIXAS
+   _CORTELAS_  = "N/W"        // COR DO FUNDO E DAS LETRAS FIXAS (era "B/W")
+   // ---- PALETA VISUAL (estilo petroleo) - para voltar, restaurar os valores originais ----
+   _CORBOXLISTA_ = "N/W+"                 // antes: "_W/BG+"
+   _CORPROMPT_   = "W+/BG,N/W"            // antes: "r/w,W+/N"  (barra de menus / opcoes)
+   _COREDICAO_   = "N/W+,W+/BG*,,,N/W+"   // antes: "N/RB*,N/GR*,,,N/W*" (campos: branco, foco ciano)
+   _CORF2_       = "N/W*,W+/BG"           // antes: "N/W*,W+/G"
    _COREDICAO_FOSCO = "N/W,N/GR"  // "N/W,N/W*"  // COR DOS CAMPOS GET
    _CORPROMPT_ = "r/w,W+/N"
    _CORF2_ = "N/W*,W+/G"
