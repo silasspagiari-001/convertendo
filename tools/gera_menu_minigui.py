@@ -15,6 +15,9 @@ filhos = {}
 for pai, rot, acao, sub, idn, ip, isub in itens:
     filhos.setdefault((pai.lower(), ip), []).append((rot, acao, sub, isub))
 
+MENU_FONT = 'Segoe UI'   # fonte dos menus
+MENU_SIZE = 14           # tamanho em pontos (ajuste aqui se precisar)
+
 def caption(rot):
     return rot.strip('"').replace('"', "'")
 
@@ -25,13 +28,13 @@ def emite(chave, nivel):
         if acao:  # item com ação direta: {|| funcao(args) }
             chamada = re.sub(r'^\{\s*\|\|\s*', '', acao)
             chamada = re.sub(r'\s*\}\s*$', '', chamada).strip()
-            out.append(f"{ind}MENUITEM '{caption(rot)}' ACTION {chamada}")
+            out.append(f"{ind}MENUITEM '{caption(rot)}' ACTION {chamada} FONT fMenu")
         elif sub:  # abre submenu (instância correta)
-            out.append(f"{ind}POPUP '{caption(rot)}'")
+            out.append(f"{ind}POPUP '{caption(rot)}' FONT fMenu")
             out += emite((sub.lower(), isub), nivel + 1)
             out.append(f"{ind}END POPUP")
         else:  # opção sem destino
-            out.append(f"{ind}MENUITEM '{caption(rot)}' ACTION MsgInfo('Em migração: {caption(rot)}')")
+            out.append(f"{ind}MENUITEM '{caption(rot)}' ACTION MsgInfo('Em migração: {caption(rot)}') FONT fMenu")
     return out
 
 linhas = [
@@ -41,10 +44,11 @@ linhas = [
     '',
     'FUNCTION MenuPrincipalMG()',
     "   DEFINE WINDOW frmMenu AT 0,0 WIDTH 800 HEIGHT 600 TITLE 'Atlas' MAIN",
+    f"      DEFINE FONT fMenu FONTNAME '{MENU_FONT}' SIZE {MENU_SIZE}",
     '      DEFINE MAIN MENU',
 ]
 for nome_barra, var, iv in barra:
-    linhas.append(f"         POPUP '{caption(nome_barra)}'")
+    linhas.append(f"         POPUP '{caption(nome_barra)}' FONT fMenu")
     linhas += emite((var.lower(), iv), 4)
     linhas.append('         END POPUP')
 linhas += [
