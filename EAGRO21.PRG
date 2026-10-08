@@ -1145,7 +1145,6 @@ do case
    case M_ALT = 2 ; nfsalt()
    case M_ALT = 3 ; nfsalt()
    case M_ALT = 4 ; nfsalt2("RELATORIO")
-   case M_ALT = 5 ; nfsalt2("NESTLE")
 
 endcase
 
@@ -1203,13 +1202,6 @@ private  M_NFSEMP ,;
             SetColor(_COREDICAO_)
             @ 24, col() get M_ESTNOT picture "@!" valid M_ESTNOT $ "SN"
             read
-         case cTIPOALT == "NESTLE"
-            M_NFSNESCLI = 0
-            setcolor("B/W")
-            @ 23, 07 say "Informe o Cliente que receber  os Produtos: "
-            SetColor(_COREDICAO_)
-            @ 23, col() get M_NFSNESCLI picture "9999999" F2 color _CORF2_ valid verclinestle() funcao "sele_arquivo('ACLI00')" retorno @M_NFSNESCLI
-            read
       endcase
 
       if lastkey() = 27
@@ -1227,8 +1219,6 @@ private  M_NFSEMP ,;
   do case
     case cTIPOALT == "RELATORIO"
       aadd(sqlCAMPO,{"NFSLIS",M_ESTNOT,.t.})
-    case cTIPOALT == "NESTLE"
-      aadd(sqlCAMPO,{"NFSNESCLI",str(M_NFSNESCLI,7),.t.})
   endcase
   executasql()
   msg("* * * NOTA ALTERADA * * *")
@@ -7493,22 +7483,7 @@ function VERNFS1                       && procura cliente
   
 return .t.    
 
-****************
-function VERCLINESTLE                       && procura cliente
-****************
 
-if M_NFSNESCLI = 0
-  return .f.
-endif
-
-if !valorescli(M_NFSNESCLI)
-  msg("* * * CLIENTE NAO CADASTRADO * * *")
-  M_NFSNESCLI = 0
-  return .f.
-endif
-msg(rtrim(zCLINOM) + " - " + rtrim(zCLIMUN2) + " " + zCLIUF2)
-
-return .t.
 
 ****************
 function VERNFS2                       && transportadora
