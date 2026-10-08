@@ -119,10 +119,8 @@
    <unit filename="sixcdx.lib" compile="Sim">
    <unit filename="bmsixcdx.lib" compile="Sim">
    <unit filename="hsx.lib" compile="Sim">
-   <unit filename="hwgui.lib" compile="Sim">
    <unit filename="import32.lib" compile="Sim">
    <unit filename="fbclient_bor.lib" compile="Sim">
-   <unit filename="hwgdebug.lib" compile="Sim">
    <unit filename="debug.lib" compile="Sim">
    <unit filename="adodb.dll" compile="Sim">
    <unit filename="novos.c" compile="Sim" prg_disabledebug="Sim">
