@@ -21,3 +21,9 @@ Não usa nenhum módulo do sistema atual (EAGRO*.PRG, MENUAGRO.PRG etc.).
 - Compilação sem erros. Se houver erro, enviar a mensagem completa.
 
 Nota: os acentos estão em UTF-8. Se aparecerem quebrados, avisar.
+
+
+## Compilar pelo console (alternativa ao HMGS)
+1. Ajuste `MINIGUI_DIR` em `build_atlas_mg.bat` para a pasta do seu MiniGUI (a que contém `Compile.bat`).
+2. Dê dois cliques em `build_atlas_mg.bat` (ou rode no prompt dentro desta pasta).
+3. Se aparecer `OK: atlas_mg.exe gerado`, execute o `atlas_mg.exe`.
