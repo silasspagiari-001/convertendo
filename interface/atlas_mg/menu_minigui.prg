@@ -3,561 +3,1028 @@
 #include "minigui.ch"
 
 FUNCTION MenuPrincipalMG()
-   DEFINE WINDOW frmMenu AT 0,0 WIDTH 800 HEIGHT 600 TITLE 'Atlas' MAIN
+   SET MENUSTYLE EXTENDED
+   DEFINE WINDOW frmMenu AT 0,0 WIDTH 800 HEIGHT 600 TITLE 'Atlas' MAIN ON INIT AplicaFonteMenu
       DEFINE FONT fMenu FONTNAME 'Segoe UI' SIZE 14
       DEFINE MAIN MENU
-         POPUP '&Estoque' FONT fMenu
-            POPUP '&Empresas' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manemp(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manemp(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manemp(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manemp(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manemp(5) FONT fMenu
-               MENUITEM '&Parametro' ACTION manemp(6) FONT fMenu
+         POPUP '&Estoque' NAME p1
+            POPUP '&Empresas' NAME p2
+               MENUITEM '&Inclusão' NAME i1 ACTION manemp(1)
+               MENUITEM '&Alteração' NAME i2 ACTION manemp(2)
+               MENUITEM '&Consulta' NAME i3 ACTION manemp(3)
+               MENUITEM '&Exclusão' NAME i4 ACTION manemp(4)
+               MENUITEM '&Listagem' NAME i5 ACTION manemp(5)
+               MENUITEM '&Parametro' NAME i6 ACTION manemp(6)
             END POPUP
-            POPUP '&Produtos' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manpro(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manpro(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manpro(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manpro(4) FONT fMenu
-               POPUP '&Listagem' FONT fMenu
-                  MENUITEM '&Relaçäo de Compra' ACTION manpro(5,1) FONT fMenu
-                  MENUITEM '&Relaçäo por Grupo' ACTION manpro(5,2) FONT fMenu
-                  MENUITEM '&Lista Preços Venda' ACTION manpro(5,3) FONT fMenu
-                  MENUITEM '&Planilha Balanco' ACTION manpro(5,4) FONT fMenu
-                  MENUITEM '&Inventario Conferencia' ACTION manpro(5,5) FONT fMenu
-                  POPUP '&Lista de Saldos' FONT fMenu
-                     MENUITEM '&Saldos de todos os Produtos' ACTION manpro(5,6,1) FONT fMenu
-                     MENUITEM '&Produtos Com Saldo Positivo' ACTION manpro(5,6,2) FONT fMenu
-                     MENUITEM '&Produtos Com Saldo Negativo' ACTION manpro(5,6,3) FONT fMenu
-                     MENUITEM '&Produtos Com Saldo Zerado' ACTION manpro(5,6,4) FONT fMenu
-                     MENUITEM '&Näo Movimentados desde (MM/AA)' ACTION manpro(5,6,5) FONT fMenu
-                     MENUITEM '&Produtos Acima Estoque MAXIMO' ACTION manpro(5,6,6) FONT fMenu
-                     MENUITEM '&Produtos Abaixo Estoque MINIMO' ACTION manpro(5,6,7) FONT fMenu
+            POPUP '&Produtos' NAME p3
+               MENUITEM '&Inclusão' NAME i7 ACTION manpro(1)
+               MENUITEM '&Alteração' NAME i8 ACTION manpro(2)
+               MENUITEM '&Consulta' NAME i9 ACTION manpro(3)
+               MENUITEM '&Exclusão' NAME i10 ACTION manpro(4)
+               POPUP '&Listagem' NAME p4
+                  MENUITEM '&Relaçäo de Compra' NAME i11 ACTION manpro(5,1)
+                  MENUITEM '&Relaçäo por Grupo' NAME i12 ACTION manpro(5,2)
+                  MENUITEM '&Lista Preços Venda' NAME i13 ACTION manpro(5,3)
+                  MENUITEM '&Planilha Balanco' NAME i14 ACTION manpro(5,4)
+                  MENUITEM '&Inventario Conferencia' NAME i15 ACTION manpro(5,5)
+                  POPUP '&Lista de Saldos' NAME p5
+                     MENUITEM '&Saldos de todos os Produtos' NAME i16 ACTION manpro(5,6,1)
+                     MENUITEM '&Produtos Com Saldo Positivo' NAME i17 ACTION manpro(5,6,2)
+                     MENUITEM '&Produtos Com Saldo Negativo' NAME i18 ACTION manpro(5,6,3)
+                     MENUITEM '&Produtos Com Saldo Zerado' NAME i19 ACTION manpro(5,6,4)
+                     MENUITEM '&Näo Movimentados desde (MM/AA)' NAME i20 ACTION manpro(5,6,5)
+                     MENUITEM '&Produtos Acima Estoque MAXIMO' NAME i21 ACTION manpro(5,6,6)
+                     MENUITEM '&Produtos Abaixo Estoque MINIMO' NAME i22 ACTION manpro(5,6,7)
                   END POPUP
-                  MENUITEM '&Inventario Efetivo' ACTION manpro(5,7) FONT fMenu
-                  POPUP '&Lista por Fabricante' FONT fMenu
-                     MENUITEM '&Saldos de todos os Produtos' ACTION manpro(5,8,1) FONT fMenu
-                     MENUITEM '&Produtos Com Saldo Positivo' ACTION manpro(5,8,2) FONT fMenu
-                     MENUITEM '&Produtos Com Saldo Negativo' ACTION manpro(5,8,3) FONT fMenu
-                     MENUITEM '&Produtos Com Saldo Zerado' ACTION manpro(5,8,4) FONT fMenu
-                     MENUITEM '&Näo Movimentados desde (MM/AA)' ACTION manpro(5,8,5) FONT fMenu
-                     MENUITEM '&Produtos Acima Estoque MAXIMO' ACTION manpro(5,8,6) FONT fMenu
-                     MENUITEM '&Produtos Abaixo Estoque MINIMO' ACTION manpro(5,8,7) FONT fMenu
+                  MENUITEM '&Inventario Efetivo' NAME i23 ACTION manpro(5,7)
+                  POPUP '&Lista por Fabricante' NAME p6
+                     MENUITEM '&Saldos de todos os Produtos' NAME i24 ACTION manpro(5,8,1)
+                     MENUITEM '&Produtos Com Saldo Positivo' NAME i25 ACTION manpro(5,8,2)
+                     MENUITEM '&Produtos Com Saldo Negativo' NAME i26 ACTION manpro(5,8,3)
+                     MENUITEM '&Produtos Com Saldo Zerado' NAME i27 ACTION manpro(5,8,4)
+                     MENUITEM '&Näo Movimentados desde (MM/AA)' NAME i28 ACTION manpro(5,8,5)
+                     MENUITEM '&Produtos Acima Estoque MAXIMO' NAME i29 ACTION manpro(5,8,6)
+                     MENUITEM '&Produtos Abaixo Estoque MINIMO' NAME i30 ACTION manpro(5,8,7)
                   END POPUP
-                  MENUITEM '&Classificacao Fiscal' ACTION manpro(5,9) FONT fMenu
+                  MENUITEM '&Classificacao Fiscal' NAME i31 ACTION manpro(5,9)
                END POPUP
-               POPUP '&Preços' FONT fMenu
-                  MENUITEM '&Altera preço Custo' ACTION manpro(6,1) FONT fMenu
-                  MENUITEM '&Altera preço Venda' ACTION manpro(6,2) FONT fMenu
-                  MENUITEM '&Altera preço Geral' ACTION manpro(6,3) FONT fMenu
+               POPUP '&Preços' NAME p7
+                  MENUITEM '&Altera preço Custo' NAME i32 ACTION manpro(6,1)
+                  MENUITEM '&Altera preço Venda' NAME i33 ACTION manpro(6,2)
+                  MENUITEM '&Altera preço Geral' NAME i34 ACTION manpro(6,3)
                END POPUP
-               MENUITEM '&Arquivo Morto' ACTION manpro(7) FONT fMenu
-               MENUITEM '&Codigos Fornecedores' ACTION manpro(8) FONT fMenu
+               MENUITEM '&Arquivo Morto' NAME i35 ACTION manpro(7)
+               MENUITEM '&Codigos Fornecedores' NAME i36 ACTION manpro(8)
             END POPUP
-            POPUP '&Fornecedores' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manfor(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manfor(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manfor(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manfor(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manfor(5) FONT fMenu
-               MENUITEM '&Etiquetas' ACTION manfor(6) FONT fMenu
-               MENUITEM '&Arquivo Morto' ACTION manfor(7) FONT fMenu
+            POPUP '&Fornecedores' NAME p8
+               MENUITEM '&Inclusão' NAME i37 ACTION manfor(1)
+               MENUITEM '&Alteração' NAME i38 ACTION manfor(2)
+               MENUITEM '&Consulta' NAME i39 ACTION manfor(3)
+               MENUITEM '&Exclusão' NAME i40 ACTION manfor(4)
+               MENUITEM '&Listagem' NAME i41 ACTION manfor(5)
+               MENUITEM '&Etiquetas' NAME i42 ACTION manfor(6)
+               MENUITEM '&Arquivo Morto' NAME i43 ACTION manfor(7)
             END POPUP
-            POPUP '&Kardex' FONT fMenu
-               MENUITEM '&Inclusão' ACTION mankar(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION mankar(2) FONT fMenu
-               POPUP '&Consulta' FONT fMenu
-                  MENUITEM '&Movimento' ACTION mankar(3,1) FONT fMenu
-                  MENUITEM '&Compras' ACTION mankar(3,2) FONT fMenu
-                  MENUITEM '&Vendas' ACTION mankar(3,3) FONT fMenu
-                  MENUITEM '&Grafico V' ACTION mankar(3,4) FONT fMenu
-                  MENUITEM '&Grafico C' ACTION mankar(3,5) FONT fMenu
+            POPUP '&Kardex' NAME p9
+               MENUITEM '&Inclusão' NAME i44 ACTION mankar(1)
+               MENUITEM '&Alteração' NAME i45 ACTION mankar(2)
+               POPUP '&Consulta' NAME p10
+                  MENUITEM '&Movimento' NAME i46 ACTION mankar(3,1)
+                  MENUITEM '&Compras' NAME i47 ACTION mankar(3,2)
+                  MENUITEM '&Vendas' NAME i48 ACTION mankar(3,3)
+                  MENUITEM '&Grafico V' NAME i49 ACTION mankar(3,4)
+                  MENUITEM '&Grafico C' NAME i50 ACTION mankar(3,5)
                END POPUP
-               MENUITEM '&Exclusão' ACTION mankar(4) FONT fMenu
-               POPUP '&Listagem' FONT fMenu
-                  MENUITEM '&Movimento' ACTION mankar(5,1) FONT fMenu
-                  MENUITEM '&Entrada/Saida' ACTION mankar(5,2) FONT fMenu
+               MENUITEM '&Exclusão' NAME i51 ACTION mankar(4)
+               POPUP '&Listagem' NAME p11
+                  MENUITEM '&Movimento' NAME i52 ACTION mankar(5,1)
+                  MENUITEM '&Entrada/Saida' NAME i53 ACTION mankar(5,2)
                END POPUP
-               POPUP '&Outros' FONT fMenu
-                  MENUITEM '&Saldo Individual' ACTION mankar(6,1) FONT fMenu
-                  MENUITEM '&Saldo Geral' ACTION mankar(6,2) FONT fMenu
-                  MENUITEM '&Custo Medio' ACTION mankar(6,3) FONT fMenu
-                  MENUITEM '&Grafico Anual' ACTION mankar(6,4) FONT fMenu
-                  MENUITEM '&Finaliza Exercicio' ACTION mankar(6,5) FONT fMenu
+               POPUP '&Outros' NAME p12
+                  MENUITEM '&Saldo Individual' NAME i54 ACTION mankar(6,1)
+                  MENUITEM '&Saldo Geral' NAME i55 ACTION mankar(6,2)
+                  MENUITEM '&Custo Medio' NAME i56 ACTION mankar(6,3)
+                  MENUITEM '&Grafico Anual' NAME i57 ACTION mankar(6,4)
+                  MENUITEM '&Finaliza Exercicio' NAME i58 ACTION mankar(6,5)
                END POPUP
             END POPUP
-            POPUP '&Grupos' FONT fMenu
-               MENUITEM '&Inclusão' ACTION mangrp(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION mangrp(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION mangrp(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION mangrp(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION mangrp(5) FONT fMenu
+            POPUP '&Grupos' NAME p13
+               MENUITEM '&Inclusão' NAME i59 ACTION mangrp(1)
+               MENUITEM '&Alteração' NAME i60 ACTION mangrp(2)
+               MENUITEM '&Consulta' NAME i61 ACTION mangrp(3)
+               MENUITEM '&Exclusão' NAME i62 ACTION mangrp(4)
+               MENUITEM '&Listagem' NAME i63 ACTION mangrp(5)
             END POPUP
-            POPUP '&Codigo NCM' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manncm(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manncm(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manncm(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manncm(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manncm(5) FONT fMenu
+            POPUP '&Codigo NCM' NAME p14
+               MENUITEM '&Inclusão' NAME i64 ACTION manncm(1)
+               MENUITEM '&Alteração' NAME i65 ACTION manncm(2)
+               MENUITEM '&Consulta' NAME i66 ACTION manncm(3)
+               MENUITEM '&Exclusão' NAME i67 ACTION manncm(4)
+               MENUITEM '&Listagem' NAME i68 ACTION manncm(5)
             END POPUP
-            POPUP '&Nota Fiscal Entrada' FONT fMenu
-               MENUITEM '&Inclusão' ACTION mannfe(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION mannfe(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION mannfe(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION mannfe(4) FONT fMenu
-               POPUP '&Listagem' FONT fMenu
-                  MENUITEM '&Analitico' ACTION mannfe(5,1) FONT fMenu
-                  MENUITEM '&Sintético' ACTION mannfe(5,2) FONT fMenu
+            POPUP '&Nota Fiscal Entrada' NAME p15
+               MENUITEM '&Inclusão' NAME i69 ACTION mannfe(1)
+               MENUITEM '&Alteração' NAME i70 ACTION mannfe(2)
+               MENUITEM '&Consulta' NAME i71 ACTION mannfe(3)
+               MENUITEM '&Exclusão' NAME i72 ACTION mannfe(4)
+               POPUP '&Listagem' NAME p16
+                  MENUITEM '&Analitico' NAME i73 ACTION mannfe(5,1)
+                  MENUITEM '&Sintético' NAME i74 ACTION mannfe(5,2)
                END POPUP
-               MENUITEM '&Implementacao' ACTION mannfe(6) FONT fMenu
-               MENUITEM '&Ler XML' ACTION mannfe(7) FONT fMenu
+               MENUITEM '&Implementacao' NAME i75 ACTION mannfe(6)
+               MENUITEM '&Ler XML' NAME i76 ACTION mannfe(7)
             END POPUP
          END POPUP
-         POPUP '&Faturar' FONT fMenu
-            POPUP '&Nota Fiscal' FONT fMenu
-               MENUITEM '&Emissão' ACTION mannfs(1) FONT fMenu
-               POPUP '&Alteração' FONT fMenu
-                  MENUITEM '&Nota Fiscal' ACTION mannfs(2,1) FONT fMenu
-                  MENUITEM '&Escrituracao' ACTION mannfs(2,2) FONT fMenu
-                  MENUITEM '&Natureza' ACTION mannfs(2,3) FONT fMenu
-                  MENUITEM '&Relatorio' ACTION mannfs(2,4) FONT fMenu
+         POPUP '&Faturar' NAME p17
+            POPUP '&Nota Fiscal' NAME p18
+               MENUITEM '&Emissão' NAME i77 ACTION mannfs(1)
+               POPUP '&Alteração' NAME p19
+                  MENUITEM '&Nota Fiscal' NAME i78 ACTION mannfs(2,1)
+                  MENUITEM '&Escrituracao' NAME i79 ACTION mannfs(2,2)
+                  MENUITEM '&Natureza' NAME i80 ACTION mannfs(2,3)
+                  MENUITEM '&Relatorio' NAME i81 ACTION mannfs(2,4)
                END POPUP
-               MENUITEM '&Consulta' ACTION mannfs(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION mannfs(4) FONT fMenu
-               POPUP '&Listagem' FONT fMenu
-                  MENUITEM '&Sintetica Notas Fiscais' ACTION mannfs(5,1) FONT fMenu
-                  MENUITEM '&Cliente Analitico' ACTION mannfs(5,2) FONT fMenu
-                  MENUITEM '&Cliente Sintetico' ACTION mannfs(5,3) FONT fMenu
-                  MENUITEM '&Nota de Servico' ACTION mannfs(5,4) FONT fMenu
-                  MENUITEM '&Vendedor Notas' ACTION mannfs(5,5) FONT fMenu
-                  MENUITEM '&Vendedor Sintetico' ACTION mannfs(5,6) FONT fMenu
-                  MENUITEM '&Municipio Sintetico' ACTION mannfs(5,7) FONT fMenu
-                  MENUITEM '&Produto Sintetico' ACTION mannfs(5,8) FONT fMenu
-                  MENUITEM '&Notas Emitidas no Periodo' ACTION mannfs(5,9) FONT fMenu
-                  MENUITEM '&Margem Bruta de Vendas' ACTION mannfs(5,11) FONT fMenu
-                  MENUITEM '&Etiquetas de Caixa' ACTION mannfs(5,11) FONT fMenu
-                  MENUITEM '&Faturamento' ACTION mannfs(5,12) FONT fMenu
-                  MENUITEM '&Notas no Periodo (Antigo)' ACTION mannfs(5,14) FONT fMenu
-                  MENUITEM '&Produtos Isentos' ACTION mannfs(5,15) FONT fMenu
-                  MENUITEM '&IMS' ACTION mannfs(5,16) FONT fMenu
-                  MENUITEM '&Prodiet' ACTION mannfs(5,17) FONT fMenu
+               MENUITEM '&Consulta' NAME i82 ACTION mannfs(3)
+               MENUITEM '&Exclusão' NAME i83 ACTION mannfs(4)
+               POPUP '&Listagem' NAME p20
+                  MENUITEM '&Sintetica Notas Fiscais' NAME i84 ACTION mannfs(5,1)
+                  MENUITEM '&Cliente Analitico' NAME i85 ACTION mannfs(5,2)
+                  MENUITEM '&Cliente Sintetico' NAME i86 ACTION mannfs(5,3)
+                  MENUITEM '&Nota de Servico' NAME i87 ACTION mannfs(5,4)
+                  MENUITEM '&Vendedor Notas' NAME i88 ACTION mannfs(5,5)
+                  MENUITEM '&Vendedor Sintetico' NAME i89 ACTION mannfs(5,6)
+                  MENUITEM '&Municipio Sintetico' NAME i90 ACTION mannfs(5,7)
+                  MENUITEM '&Produto Sintetico' NAME i91 ACTION mannfs(5,8)
+                  MENUITEM '&Notas Emitidas no Periodo' NAME i92 ACTION mannfs(5,9)
+                  MENUITEM '&Margem Bruta de Vendas' NAME i93 ACTION mannfs(5,11)
+                  MENUITEM '&Etiquetas de Caixa' NAME i94 ACTION mannfs(5,11)
+                  MENUITEM '&Faturamento' NAME i95 ACTION mannfs(5,12)
+                  MENUITEM '&Notas no Periodo (Antigo)' NAME i96 ACTION mannfs(5,14)
+                  MENUITEM '&Produtos Isentos' NAME i97 ACTION mannfs(5,15)
+                  MENUITEM '&IMS' NAME i98 ACTION mannfs(5,16)
+                  MENUITEM '&Prodiet' NAME i99 ACTION mannfs(5,17)
                END POPUP
-               POPUP '&Outros' FONT fMenu
-                  MENUITEM '&Carta de Correcao' ACTION mannfs(6,1) FONT fMenu
-                  MENUITEM '&Cancelamento' ACTION mannfs(6,2) FONT fMenu
-                  MENUITEM '&Reemissao' ACTION mannfs(6,3) FONT fMenu
-                  MENUITEM '&Enviar Email' ACTION mannfs(6,4) FONT fMenu
+               POPUP '&Outros' NAME p21
+                  MENUITEM '&Carta de Correcao' NAME i100 ACTION mannfs(6,1)
+                  MENUITEM '&Cancelamento' NAME i101 ACTION mannfs(6,2)
+                  MENUITEM '&Reemissao' NAME i102 ACTION mannfs(6,3)
+                  MENUITEM '&Enviar Email' NAME i103 ACTION mannfs(6,4)
                END POPUP
-               MENUITEM '&Transporte' ACTION mannfs(7) FONT fMenu
-               MENUITEM '&Inclusao' ACTION mannfs(8) FONT fMenu
-               MENUITEM '&Carta de Credito' ACTION emicre() FONT fMenu
-               MENUITEM '&Etiqueta Argox' ACTION mangel1() FONT fMenu
+               MENUITEM '&Transporte' NAME i104 ACTION mannfs(7)
+               MENUITEM '&Inclusao' NAME i105 ACTION mannfs(8)
+               MENUITEM '&Carta de Credito' NAME i106 ACTION emicre()
+               MENUITEM '&Etiqueta Argox' NAME i107 ACTION mangel1()
             END POPUP
-            POPUP '&Orcamento' FONT fMenu
-               MENUITEM '&Emissão' ACTION manped(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manped(2) FONT fMenu
-               POPUP '&Consulta' FONT fMenu
-                  MENUITEM '&Pedido' ACTION manped(3,1) FONT fMenu
-                  MENUITEM '&Cliente' ACTION manped(3,2) FONT fMenu
+            POPUP '&Orcamento' NAME p22
+               MENUITEM '&Emissão' NAME i108 ACTION manped(1)
+               MENUITEM '&Alteração' NAME i109 ACTION manped(2)
+               POPUP '&Consulta' NAME p23
+                  MENUITEM '&Pedido' NAME i110 ACTION manped(3,1)
+                  MENUITEM '&Cliente' NAME i111 ACTION manped(3,2)
                END POPUP
-               MENUITEM '&Exclusão' ACTION manped(4) FONT fMenu
-               POPUP '&Listagem' FONT fMenu
-                  MENUITEM '&Listagem de Pedidos' ACTION manped(5,1) FONT fMenu
-                  MENUITEM '&Relacao por Produto' ACTION manped(5,2) FONT fMenu
-                  MENUITEM '&Sintetica Pedidos' ACTION manped(5,3) FONT fMenu
-                  MENUITEM '&Relacao por Grupo' ACTION manped(5,4) FONT fMenu
-                  MENUITEM '&Relacao por Cliente' ACTION manped(5,5) FONT fMenu
-                  MENUITEM '&Analitico Vendedor' ACTION manped(5,6) FONT fMenu
+               MENUITEM '&Exclusão' NAME i112 ACTION manped(4)
+               POPUP '&Listagem' NAME p24
+                  MENUITEM '&Listagem de Pedidos' NAME i113 ACTION manped(5,1)
+                  MENUITEM '&Relacao por Produto' NAME i114 ACTION manped(5,2)
+                  MENUITEM '&Sintetica Pedidos' NAME i115 ACTION manped(5,3)
+                  MENUITEM '&Relacao por Grupo' NAME i116 ACTION manped(5,4)
+                  MENUITEM '&Relacao por Cliente' NAME i117 ACTION manped(5,5)
+                  MENUITEM '&Analitico Vendedor' NAME i118 ACTION manped(5,6)
                END POPUP
-               POPUP '&Agrupamento' FONT fMenu
-                  MENUITEM '&Alteracao' ACTION manped(6,1) FONT fMenu
-                  MENUITEM '&Emissao Nota' ACTION manped(6,2) FONT fMenu
-               END POPUP
-            END POPUP
-            POPUP '&Requisição' FONT fMenu
-               MENUITEM '&Emissão' ACTION manreq(1) FONT fMenu
-               MENUITEM '&Reemissão' ACTION manreq(7) FONT fMenu
-               MENUITEM '&Alteração' ACTION manreq(2) FONT fMenu
-               POPUP '&Consulta' FONT fMenu
-                  MENUITEM '&Aluguel' ACTION manreq(3,1) FONT fMenu
-                  MENUITEM '&Cliente' ACTION manreq(3,2) FONT fMenu
-               END POPUP
-               MENUITEM '&Exclusão' ACTION manreq(4) FONT fMenu
-               POPUP '&Listagem' FONT fMenu
-                  MENUITEM '&Listagem de Requisicoes' ACTION manreq(5,1) FONT fMenu
-                  MENUITEM '&Relacao por Produto' ACTION manreq(5,2) FONT fMenu
-                  MENUITEM '&Analitica Requisicao' ACTION manreq(5,3) FONT fMenu
-                  MENUITEM '&Sintetica Requisicao' ACTION manreq(5,4) FONT fMenu
-                  MENUITEM '&Relacao por Cliente' ACTION manreq(5,5) FONT fMenu
-                  MENUITEM '&Analitico Vendedor' ACTION manreq(5,6) FONT fMenu
-                  MENUITEM '&Analitico Clilente' ACTION manreq(5,7) FONT fMenu
-                  MENUITEM '&Resumo de Vendas' ACTION manreq(5,8) FONT fMenu
-                  MENUITEM '&Mapa Resumido Indicado' ACTION manreq(5,9) FONT fMenu
-               END POPUP
-               POPUP '&Aluguel' FONT fMenu
-                  MENUITEM '&Renovacao' ACTION manreq(6,1) FONT fMenu
-                  MENUITEM '&Encerramento' ACTION manreq(6,2) FONT fMenu
-                  MENUITEM '&Listagem' ACTION manreq(6,3) FONT fMenu
+               POPUP '&Agrupamento' NAME p25
+                  MENUITEM '&Alteracao' NAME i119 ACTION manped(6,1)
+                  MENUITEM '&Emissao Nota' NAME i120 ACTION manped(6,2)
                END POPUP
             END POPUP
-            POPUP '&Cupom Eletronico' FONT fMenu
-               MENUITEM '&Emissão' ACTION mansat(1,1) FONT fMenu
-               MENUITEM '&Inclusão' ACTION mansat(1,2) FONT fMenu
-               MENUITEM '&Alteração' ACTION mansat(2) FONT fMenu
-               POPUP '&Consulta' FONT fMenu
-                  MENUITEM '&Cupom Fiscal' ACTION mansat(3,1) FONT fMenu
-                  MENUITEM '&Cliente' ACTION mansat(3,2) FONT fMenu
+            POPUP '&Requisição' NAME p26
+               MENUITEM '&Emissão' NAME i121 ACTION manreq(1)
+               MENUITEM '&Reemissão' NAME i122 ACTION manreq(7)
+               MENUITEM '&Alteração' NAME i123 ACTION manreq(2)
+               POPUP '&Consulta' NAME p27
+                  MENUITEM '&Aluguel' NAME i124 ACTION manreq(3,1)
+                  MENUITEM '&Cliente' NAME i125 ACTION manreq(3,2)
                END POPUP
-               MENUITEM '&Reemissão' ACTION mansat(4) FONT fMenu
-               POPUP '&Listagem' FONT fMenu
-                  MENUITEM '&Faturamento do Dia' ACTION mansat(5,1) FONT fMenu
-                  MENUITEM '&Mapa Resumo Fiscal' ACTION mansat(5,2) FONT fMenu
-                  MENUITEM '&Produto Sintetica' ACTION mansat(5,3) FONT fMenu
+               MENUITEM '&Exclusão' NAME i126 ACTION manreq(4)
+               POPUP '&Listagem' NAME p28
+                  MENUITEM '&Listagem de Requisicoes' NAME i127 ACTION manreq(5,1)
+                  MENUITEM '&Relacao por Produto' NAME i128 ACTION manreq(5,2)
+                  MENUITEM '&Analitica Requisicao' NAME i129 ACTION manreq(5,3)
+                  MENUITEM '&Sintetica Requisicao' NAME i130 ACTION manreq(5,4)
+                  MENUITEM '&Relacao por Cliente' NAME i131 ACTION manreq(5,5)
+                  MENUITEM '&Analitico Vendedor' NAME i132 ACTION manreq(5,6)
+                  MENUITEM '&Analitico Clilente' NAME i133 ACTION manreq(5,7)
+                  MENUITEM '&Resumo de Vendas' NAME i134 ACTION manreq(5,8)
+                  MENUITEM '&Mapa Resumido Indicado' NAME i135 ACTION manreq(5,9)
                END POPUP
-               MENUITEM '&Cancelamento' ACTION mansat(6) FONT fMenu
-            END POPUP
-            POPUP '&Clientes' FONT fMenu
-               MENUITEM '&Inclusão' ACTION mancli(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION mancli(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION mancli(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION mancli(4) FONT fMenu
-               POPUP '&Listagem' FONT fMenu
-                  MENUITEM '&Completa Codigo' ACTION mancli(5,1) FONT fMenu
-                  MENUITEM '&Completa CPF/CNPJ' ACTION mancli(5,2) FONT fMenu
-                  MENUITEM '&Completa Alfabetica' ACTION mancli(5,3) FONT fMenu
-                  MENUITEM '&Catalogo Codigo' ACTION mancli(5,4) FONT fMenu
-                  MENUITEM '&Catalogo CPF/CNPJ' ACTION mancli(5,5) FONT fMenu
-                  MENUITEM '&Catalogo Alfabetica' ACTION mancli(5,6) FONT fMenu
-                  MENUITEM '&Catalogo Municipio' ACTION mancli(5,7) FONT fMenu
-               END POPUP
-               POPUP '&Etiqueta' FONT fMenu
-                  MENUITEM '&Codigo' ACTION mancli(6,1) FONT fMenu
-                  MENUITEM '&Seleção' ACTION mancli(6,2) FONT fMenu
-                  MENUITEM '&Nome' ACTION mancli(6,3) FONT fMenu
-                  MENUITEM '&Parametro' ACTION mancli(6,4) FONT fMenu
-               END POPUP
-               MENUITEM '&Arquivo Morto' ACTION mancli(7) FONT fMenu
-               POPUP '&Tipo Cliente' FONT fMenu
-                  MENUITEM '&Inclusão' ACTION mancli(8,1) FONT fMenu
-                  MENUITEM '&Alteração' ACTION mancli(8,2) FONT fMenu
-                  MENUITEM '&Consulta' ACTION mancli(8,3) FONT fMenu
-                  MENUITEM '&Exclusão' ACTION mancli(8,4) FONT fMenu
-                  MENUITEM '&Listagem' ACTION mancli(8,5) FONT fMenu
+               POPUP '&Aluguel' NAME p29
+                  MENUITEM '&Renovacao' NAME i136 ACTION manreq(6,1)
+                  MENUITEM '&Encerramento' NAME i137 ACTION manreq(6,2)
+                  MENUITEM '&Listagem' NAME i138 ACTION manreq(6,3)
                END POPUP
             END POPUP
-            POPUP '&Vendedores' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manven(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manven(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manven(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manven(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manven(5) FONT fMenu
-               POPUP '&Comissão' FONT fMenu
-                  MENUITEM '&Pagameto' ACTION manven(6,1) FONT fMenu
-                  MENUITEM '&Vencimento' ACTION manven(6,2) FONT fMenu
-                  MENUITEM '&Emissao' ACTION manven(6,3) FONT fMenu
-                  MENUITEM '&Aberto' ACTION manven(6,4) FONT fMenu
+            POPUP '&Cupom Eletronico' NAME p30
+               MENUITEM '&Emissão' NAME i139 ACTION mansat(1,1)
+               MENUITEM '&Inclusão' NAME i140 ACTION mansat(1,2)
+               MENUITEM '&Alteração' NAME i141 ACTION mansat(2)
+               POPUP '&Consulta' NAME p31
+                  MENUITEM '&Cupom Fiscal' NAME i142 ACTION mansat(3,1)
+                  MENUITEM '&Cliente' NAME i143 ACTION mansat(3,2)
+               END POPUP
+               MENUITEM '&Reemissão' NAME i144 ACTION mansat(4)
+               POPUP '&Listagem' NAME p32
+                  MENUITEM '&Faturamento do Dia' NAME i145 ACTION mansat(5,1)
+                  MENUITEM '&Mapa Resumo Fiscal' NAME i146 ACTION mansat(5,2)
+                  MENUITEM '&Produto Sintetica' NAME i147 ACTION mansat(5,3)
+               END POPUP
+               MENUITEM '&Cancelamento' NAME i148 ACTION mansat(6)
+            END POPUP
+            POPUP '&Clientes' NAME p33
+               MENUITEM '&Inclusão' NAME i149 ACTION mancli(1)
+               MENUITEM '&Alteração' NAME i150 ACTION mancli(2)
+               MENUITEM '&Consulta' NAME i151 ACTION mancli(3)
+               MENUITEM '&Exclusão' NAME i152 ACTION mancli(4)
+               POPUP '&Listagem' NAME p34
+                  MENUITEM '&Completa Codigo' NAME i153 ACTION mancli(5,1)
+                  MENUITEM '&Completa CPF/CNPJ' NAME i154 ACTION mancli(5,2)
+                  MENUITEM '&Completa Alfabetica' NAME i155 ACTION mancli(5,3)
+                  MENUITEM '&Catalogo Codigo' NAME i156 ACTION mancli(5,4)
+                  MENUITEM '&Catalogo CPF/CNPJ' NAME i157 ACTION mancli(5,5)
+                  MENUITEM '&Catalogo Alfabetica' NAME i158 ACTION mancli(5,6)
+                  MENUITEM '&Catalogo Municipio' NAME i159 ACTION mancli(5,7)
+               END POPUP
+               POPUP '&Etiqueta' NAME p35
+                  MENUITEM '&Codigo' NAME i160 ACTION mancli(6,1)
+                  MENUITEM '&Seleção' NAME i161 ACTION mancli(6,2)
+                  MENUITEM '&Nome' NAME i162 ACTION mancli(6,3)
+                  MENUITEM '&Parametro' NAME i163 ACTION mancli(6,4)
+               END POPUP
+               MENUITEM '&Arquivo Morto' NAME i164 ACTION mancli(7)
+               POPUP '&Tipo Cliente' NAME p36
+                  MENUITEM '&Inclusão' NAME i165 ACTION mancli(8,1)
+                  MENUITEM '&Alteração' NAME i166 ACTION mancli(8,2)
+                  MENUITEM '&Consulta' NAME i167 ACTION mancli(8,3)
+                  MENUITEM '&Exclusão' NAME i168 ACTION mancli(8,4)
+                  MENUITEM '&Listagem' NAME i169 ACTION mancli(8,5)
                END POPUP
             END POPUP
-            POPUP '&Transportadora' FONT fMenu
-               MENUITEM '&Inclusão' ACTION mantra(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION mantra(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION mantra(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION mantra(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION mantra(5) FONT fMenu
+            POPUP '&Vendedores' NAME p37
+               MENUITEM '&Inclusão' NAME i170 ACTION manven(1)
+               MENUITEM '&Alteração' NAME i171 ACTION manven(2)
+               MENUITEM '&Consulta' NAME i172 ACTION manven(3)
+               MENUITEM '&Exclusão' NAME i173 ACTION manven(4)
+               MENUITEM '&Listagem' NAME i174 ACTION manven(5)
+               POPUP '&Comissão' NAME p38
+                  MENUITEM '&Pagameto' NAME i175 ACTION manven(6,1)
+                  MENUITEM '&Vencimento' NAME i176 ACTION manven(6,2)
+                  MENUITEM '&Emissao' NAME i177 ACTION manven(6,3)
+                  MENUITEM '&Aberto' NAME i178 ACTION manven(6,4)
+               END POPUP
             END POPUP
-            POPUP '&Pagamentos' FONT fMenu
-               MENUITEM '&Inclusão' ACTION mancpg(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION mancpg(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION mancpg(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION mancpg(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION mancpg(5) FONT fMenu
+            POPUP '&Transportadora' NAME p39
+               MENUITEM '&Inclusão' NAME i179 ACTION mantra(1)
+               MENUITEM '&Alteração' NAME i180 ACTION mantra(2)
+               MENUITEM '&Consulta' NAME i181 ACTION mantra(3)
+               MENUITEM '&Exclusão' NAME i182 ACTION mantra(4)
+               MENUITEM '&Listagem' NAME i183 ACTION mantra(5)
             END POPUP
-            POPUP '&Indicado' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manind(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manind(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manind(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manind(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manind(5) FONT fMenu
+            POPUP '&Pagamentos' NAME p40
+               MENUITEM '&Inclusão' NAME i184 ACTION mancpg(1)
+               MENUITEM '&Alteração' NAME i185 ACTION mancpg(2)
+               MENUITEM '&Consulta' NAME i186 ACTION mancpg(3)
+               MENUITEM '&Exclusão' NAME i187 ACTION mancpg(4)
+               MENUITEM '&Listagem' NAME i188 ACTION mancpg(5)
             END POPUP
-            MENUITEM '&Mensagem NF' ACTION manmsg() FONT fMenu
+            POPUP '&Indicado' NAME p41
+               MENUITEM '&Inclusão' NAME i189 ACTION manind(1)
+               MENUITEM '&Alteração' NAME i190 ACTION manind(2)
+               MENUITEM '&Consulta' NAME i191 ACTION manind(3)
+               MENUITEM '&Exclusão' NAME i192 ACTION manind(4)
+               MENUITEM '&Listagem' NAME i193 ACTION manind(5)
+            END POPUP
+            MENUITEM '&Mensagem NF' NAME i194 ACTION manmsg()
          END POPUP
-         POPUP '&Receber' FONT fMenu
-            POPUP '&Duplicata' FONT fMenu
-               MENUITEM '&Inclusão' ACTION mandcr(1) FONT fMenu
-               POPUP '&Alteracao' FONT fMenu
-                  MENUITEM '&Titulo' ACTION mandcr(2,1) FONT fMenu
-                  MENUITEM '&Pagamento' ACTION mandcr(2,3) FONT fMenu
-                  MENUITEM '&Exportar' ACTION mandcr(2,4) FONT fMenu
+         POPUP '&Receber' NAME p42
+            POPUP '&Duplicata' NAME p43
+               MENUITEM '&Inclusão' NAME i195 ACTION mandcr(1)
+               POPUP '&Alteracao' NAME p44
+                  MENUITEM '&Titulo' NAME i196 ACTION mandcr(2,1)
+                  MENUITEM '&Pagamento' NAME i197 ACTION mandcr(2,3)
+                  MENUITEM '&Exportar' NAME i198 ACTION mandcr(2,4)
                END POPUP
-               POPUP '&Consulta' FONT fMenu
-                  MENUITEM '&Sequencia' ACTION mandcr(3,1) FONT fMenu
-                  MENUITEM '&Vencidas' ACTION mandcr(3,2) FONT fMenu
-                  MENUITEM '&Emissao' ACTION mandcr(3,3) FONT fMenu
-                  MENUITEM '&Codigos' ACTION mandcr(3,4) FONT fMenu
-                  MENUITEM '&Portador' ACTION mandcr(3,5) FONT fMenu
-                  MENUITEM '&Pagamento' ACTION mandcr(3,6) FONT fMenu
+               POPUP '&Consulta' NAME p45
+                  MENUITEM '&Sequencia' NAME i199 ACTION mandcr(3,1)
+                  MENUITEM '&Vencidas' NAME i200 ACTION mandcr(3,2)
+                  MENUITEM '&Emissao' NAME i201 ACTION mandcr(3,3)
+                  MENUITEM '&Codigos' NAME i202 ACTION mandcr(3,4)
+                  MENUITEM '&Portador' NAME i203 ACTION mandcr(3,5)
+                  MENUITEM '&Pagamento' NAME i204 ACTION mandcr(3,6)
                END POPUP
-               MENUITEM '&Exclusão' ACTION mandcr(4) FONT fMenu
-               POPUP '&Listagem' FONT fMenu
-                  MENUITEM '&Perda' ACTION mandcr(5,1) FONT fMenu
-                  MENUITEM '&Vencidas' ACTION mandcr(5,2) FONT fMenu
-                  MENUITEM '&Nome' ACTION mandcr(5,3) FONT fMenu
-                  MENUITEM '&Codigo' ACTION mandcr(5,4) FONT fMenu
-                  MENUITEM '&Portador' ACTION mandcr(5,5) FONT fMenu
-                  MENUITEM '&Pagamento' ACTION mandcr(5,6) FONT fMenu
-                  MENUITEM '&Sequencia' ACTION mandcr(5,7) FONT fMenu
-                  MENUITEM '&Emissão' ACTION mandcr(5,8) FONT fMenu
-                  MENUITEM '&Cidade' ACTION mandcr(5,9) FONT fMenu
+               MENUITEM '&Exclusão' NAME i205 ACTION mandcr(4)
+               POPUP '&Listagem' NAME p46
+                  MENUITEM '&Perda' NAME i206 ACTION mandcr(5,1)
+                  MENUITEM '&Vencidas' NAME i207 ACTION mandcr(5,2)
+                  MENUITEM '&Nome' NAME i208 ACTION mandcr(5,3)
+                  MENUITEM '&Codigo' NAME i209 ACTION mandcr(5,4)
+                  MENUITEM '&Portador' NAME i210 ACTION mandcr(5,5)
+                  MENUITEM '&Pagamento' NAME i211 ACTION mandcr(5,6)
+                  MENUITEM '&Sequencia' NAME i212 ACTION mandcr(5,7)
+                  MENUITEM '&Emissão' NAME i213 ACTION mandcr(5,8)
+                  MENUITEM '&Cidade' NAME i214 ACTION mandcr(5,9)
                END POPUP
-               POPUP '&Titulos' FONT fMenu
-                  MENUITEM '&Brasil' ACTION mandcr(6,1) FONT fMenu
-                  MENUITEM '&Sicred    ' ACTION mandcr(6,2) FONT fMenu
-               END POPUP
-            END POPUP
-            POPUP '&Instrução' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manlcr(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manlcr(2) FONT fMenu
-               POPUP '&Consulta' FONT fMenu
-                  MENUITEM '&Instrução' ACTION manlcr(3,1) FONT fMenu
-                  MENUITEM '&Duplicata' ACTION manlcr(3,2) FONT fMenu
-                  MENUITEM '&Cliente' ACTION manlcr(3,3) FONT fMenu
-               END POPUP
-               MENUITEM '&Exclusão' ACTION manlcr(4) FONT fMenu
-               POPUP '&Listagem' FONT fMenu
-                  MENUITEM '&Instrução' ACTION manlcr(5,1) FONT fMenu
-                  MENUITEM '&Diario' ACTION manlcr(5,2) FONT fMenu
-                  MENUITEM '&Razão' ACTION manlcr(5,3) FONT fMenu
-               END POPUP
-               MENUITEM '&Fechamento' ACTION manlcr(6) FONT fMenu
-            END POPUP
-            POPUP '&Baixas' FONT fMenu
-               MENUITEM '&Documento' ACTION manbcr(1) FONT fMenu
-               MENUITEM '&Clientes' ACTION manbcr(2) FONT fMenu
-               MENUITEM '&Recepcão' ACTION manbcr(3) FONT fMenu
-               MENUITEM '&Consiste' ACTION manbcr(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manbcr(5) FONT fMenu
-            END POPUP
-            POPUP '&Operacoes' FONT fMenu
-               MENUITEM '&Inclusao' ACTION manmcr(1) FONT fMenu
-               MENUITEM '&Alteracao' ACTION manmcr(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manmcr(3) FONT fMenu
-               MENUITEM '&Exclusao' ACTION manmcr(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manmcr(5) FONT fMenu
-            END POPUP
-            POPUP '&Portadores' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manpor(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manpor(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manpor(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manpor(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manpor(5) FONT fMenu
-            END POPUP
-            POPUP '&Exportar' FONT fMenu
-               MENUITEM '&Remessa' ACTION manexp(1) FONT fMenu
-               MENUITEM '&Lista Retorno' ACTION manexp(2) FONT fMenu
-               MENUITEM '&Baixa Retorno' ACTION manexp(3) FONT fMenu
-            END POPUP
-            POPUP '&Etiquetas' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manetq(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manetq(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manetq(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manetq(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manetq(5) FONT fMenu
-               MENUITEM '&Parametro' ACTION manetq(6) FONT fMenu
-            END POPUP
-         END POPUP
-         POPUP '&Pagar' FONT fMenu
-            POPUP '&Duplicata' FONT fMenu
-               MENUITEM '&Inclusão' ACTION mandcp(1) FONT fMenu
-               POPUP '&Alteracao' FONT fMenu
-                  MENUITEM '&Titulo' ACTION mandcp(2,1) FONT fMenu
-                  MENUITEM '&Portador' ACTION mandcp(2,3) FONT fMenu
-               END POPUP
-               POPUP '&Consulta' FONT fMenu
-                  MENUITEM '&Sequencia' ACTION mandcp(3,1) FONT fMenu
-                  MENUITEM '&Vencidas' ACTION mandcp(3,2) FONT fMenu
-                  MENUITEM '&Emissao' ACTION mandcp(3,3) FONT fMenu
-                  MENUITEM '&Codigos' ACTION mandcp(3,4) FONT fMenu
-                  MENUITEM '&Portador' ACTION mandcp(3,5) FONT fMenu
-                  MENUITEM '&Pagamento' ACTION mandcp(3,6) FONT fMenu
-               END POPUP
-               MENUITEM '&Exclusão' ACTION mandcp(4) FONT fMenu
-               POPUP '&Listagem' FONT fMenu
-                  MENUITEM '&Sequencia' ACTION mandcp(5,1) FONT fMenu
-                  MENUITEM '&Vencidas' ACTION mandcp(5,2) FONT fMenu
-                  MENUITEM '&Nome' ACTION mandcp(5,3) FONT fMenu
-                  MENUITEM '&Codigo' ACTION mandcp(5,4) FONT fMenu
-                  MENUITEM '&Portador' ACTION mandcp(5,5) FONT fMenu
-                  MENUITEM '&Pagamento' ACTION mandcp(5,6) FONT fMenu
+               POPUP '&Titulos' NAME p47
+                  MENUITEM '&Brasil' NAME i215 ACTION mandcr(6,1)
+                  MENUITEM '&Sicred    ' NAME i216 ACTION mandcr(6,2)
                END POPUP
             END POPUP
-            POPUP '&Instrução' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manlcp(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manlcp(2) FONT fMenu
-               POPUP '&Consulta' FONT fMenu
-                  MENUITEM '&Instrução' ACTION manlcp(3,1) FONT fMenu
-                  MENUITEM '&Duplicata' ACTION manlcp(3,2) FONT fMenu
-                  MENUITEM '&Fornecedor' ACTION manlcp(3,3) FONT fMenu
+            POPUP '&Instrução' NAME p48
+               MENUITEM '&Inclusão' NAME i217 ACTION manlcr(1)
+               MENUITEM '&Alteração' NAME i218 ACTION manlcr(2)
+               POPUP '&Consulta' NAME p49
+                  MENUITEM '&Instrução' NAME i219 ACTION manlcr(3,1)
+                  MENUITEM '&Duplicata' NAME i220 ACTION manlcr(3,2)
+                  MENUITEM '&Cliente' NAME i221 ACTION manlcr(3,3)
                END POPUP
-               MENUITEM '&Exclusão' ACTION manlcp(4) FONT fMenu
-               POPUP '&Listagem' FONT fMenu
-                  MENUITEM '&Instrução' ACTION manlcp(5,1) FONT fMenu
-                  MENUITEM '&Diario' ACTION manlcp(5,2) FONT fMenu
-                  MENUITEM '&Razão' ACTION manlcp(5,3) FONT fMenu
+               MENUITEM '&Exclusão' NAME i222 ACTION manlcr(4)
+               POPUP '&Listagem' NAME p50
+                  MENUITEM '&Instrução' NAME i223 ACTION manlcr(5,1)
+                  MENUITEM '&Diario' NAME i224 ACTION manlcr(5,2)
+                  MENUITEM '&Razão' NAME i225 ACTION manlcr(5,3)
                END POPUP
-               MENUITEM '&Fechamento' ACTION manlcp(6) FONT fMenu
+               MENUITEM '&Fechamento' NAME i226 ACTION manlcr(6)
             END POPUP
-            POPUP '&Baixas' FONT fMenu
-               MENUITEM '&Documento' ACTION manbcp(1) FONT fMenu
-               MENUITEM '&Fornecedor' ACTION manbcp(2) FONT fMenu
-               MENUITEM '&Listagem' ACTION manbcp(3) FONT fMenu
+            POPUP '&Baixas' NAME p51
+               MENUITEM '&Documento' NAME i227 ACTION manbcr(1)
+               MENUITEM '&Clientes' NAME i228 ACTION manbcr(2)
+               MENUITEM '&Recepcão' NAME i229 ACTION manbcr(3)
+               MENUITEM '&Consiste' NAME i230 ACTION manbcr(4)
+               MENUITEM '&Listagem' NAME i231 ACTION manbcr(5)
             END POPUP
-            POPUP '&Operacoes' FONT fMenu
-               MENUITEM '&Inclusao' ACTION manmcp(1) FONT fMenu
-               MENUITEM '&Alteracao' ACTION manmcp(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manmcp(3) FONT fMenu
-               MENUITEM '&Exclusao' ACTION manmcp(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manmcp(5) FONT fMenu
+            POPUP '&Operacoes' NAME p52
+               MENUITEM '&Inclusao' NAME i232 ACTION manmcr(1)
+               MENUITEM '&Alteracao' NAME i233 ACTION manmcr(2)
+               MENUITEM '&Consulta' NAME i234 ACTION manmcr(3)
+               MENUITEM '&Exclusao' NAME i235 ACTION manmcr(4)
+               MENUITEM '&Listagem' NAME i236 ACTION manmcr(5)
+            END POPUP
+            POPUP '&Portadores' NAME p53
+               MENUITEM '&Inclusão' NAME i237 ACTION manpor(1)
+               MENUITEM '&Alteração' NAME i238 ACTION manpor(2)
+               MENUITEM '&Consulta' NAME i239 ACTION manpor(3)
+               MENUITEM '&Exclusão' NAME i240 ACTION manpor(4)
+               MENUITEM '&Listagem' NAME i241 ACTION manpor(5)
+            END POPUP
+            POPUP '&Exportar' NAME p54
+               MENUITEM '&Remessa' NAME i242 ACTION manexp(1)
+               MENUITEM '&Lista Retorno' NAME i243 ACTION manexp(2)
+               MENUITEM '&Baixa Retorno' NAME i244 ACTION manexp(3)
+            END POPUP
+            POPUP '&Etiquetas' NAME p55
+               MENUITEM '&Inclusão' NAME i245 ACTION manetq(1)
+               MENUITEM '&Alteração' NAME i246 ACTION manetq(2)
+               MENUITEM '&Consulta' NAME i247 ACTION manetq(3)
+               MENUITEM '&Exclusão' NAME i248 ACTION manetq(4)
+               MENUITEM '&Listagem' NAME i249 ACTION manetq(5)
+               MENUITEM '&Parametro' NAME i250 ACTION manetq(6)
             END POPUP
          END POPUP
-         POPUP '&Bancos' FONT fMenu
-            POPUP '&Conta' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manban(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manban(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manban(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manban(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manban(5) FONT fMenu
-               MENUITEM '&Exercicio' ACTION manban(6) FONT fMenu
+         POPUP '&Pagar' NAME p56
+            POPUP '&Duplicata' NAME p57
+               MENUITEM '&Inclusão' NAME i251 ACTION mandcp(1)
+               POPUP '&Alteracao' NAME p58
+                  MENUITEM '&Titulo' NAME i252 ACTION mandcp(2,1)
+                  MENUITEM '&Portador' NAME i253 ACTION mandcp(2,3)
+               END POPUP
+               POPUP '&Consulta' NAME p59
+                  MENUITEM '&Sequencia' NAME i254 ACTION mandcp(3,1)
+                  MENUITEM '&Vencidas' NAME i255 ACTION mandcp(3,2)
+                  MENUITEM '&Emissao' NAME i256 ACTION mandcp(3,3)
+                  MENUITEM '&Codigos' NAME i257 ACTION mandcp(3,4)
+                  MENUITEM '&Portador' NAME i258 ACTION mandcp(3,5)
+                  MENUITEM '&Pagamento' NAME i259 ACTION mandcp(3,6)
+               END POPUP
+               MENUITEM '&Exclusão' NAME i260 ACTION mandcp(4)
+               POPUP '&Listagem' NAME p60
+                  MENUITEM '&Sequencia' NAME i261 ACTION mandcp(5,1)
+                  MENUITEM '&Vencidas' NAME i262 ACTION mandcp(5,2)
+                  MENUITEM '&Nome' NAME i263 ACTION mandcp(5,3)
+                  MENUITEM '&Codigo' NAME i264 ACTION mandcp(5,4)
+                  MENUITEM '&Portador' NAME i265 ACTION mandcp(5,5)
+                  MENUITEM '&Pagamento' NAME i266 ACTION mandcp(5,6)
+               END POPUP
             END POPUP
-            POPUP '&Historico' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manhib(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manhib(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manhib(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manhib(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manhib(5) FONT fMenu
+            POPUP '&Instrução' NAME p61
+               MENUITEM '&Inclusão' NAME i267 ACTION manlcp(1)
+               MENUITEM '&Alteração' NAME i268 ACTION manlcp(2)
+               POPUP '&Consulta' NAME p62
+                  MENUITEM '&Instrução' NAME i269 ACTION manlcp(3,1)
+                  MENUITEM '&Duplicata' NAME i270 ACTION manlcp(3,2)
+                  MENUITEM '&Fornecedor' NAME i271 ACTION manlcp(3,3)
+               END POPUP
+               MENUITEM '&Exclusão' NAME i272 ACTION manlcp(4)
+               POPUP '&Listagem' NAME p63
+                  MENUITEM '&Instrução' NAME i273 ACTION manlcp(5,1)
+                  MENUITEM '&Diario' NAME i274 ACTION manlcp(5,2)
+                  MENUITEM '&Razão' NAME i275 ACTION manlcp(5,3)
+               END POPUP
+               MENUITEM '&Fechamento' NAME i276 ACTION manlcp(6)
             END POPUP
-            POPUP '&Movimento' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manlab(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manlab(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manlab(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manlab(4) FONT fMenu
-               POPUP '&Listagem' FONT fMenu
-                  MENUITEM '&Instrução' ACTION manlcp(5,1) FONT fMenu
-                  MENUITEM '&Diario' ACTION manlcp(5,2) FONT fMenu
-                  MENUITEM '&Razão' ACTION manlcp(5,3) FONT fMenu
-               END POPUP
-               MENUITEM '&Conciliar' ACTION manlab(6) FONT fMenu
+            POPUP '&Baixas' NAME p64
+               MENUITEM '&Documento' NAME i277 ACTION manbcp(1)
+               MENUITEM '&Fornecedor' NAME i278 ACTION manbcp(2)
+               MENUITEM '&Listagem' NAME i279 ACTION manbcp(3)
             END POPUP
-            POPUP '&Cheque' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manche(1) FONT fMenu
-               MENUITEM '&Alteracao' ACTION manche(2) FONT fMenu
-               POPUP '&Consulta' FONT fMenu
-                  MENUITEM '&Cheque' ACTION manche(3,1) FONT fMenu
-                  MENUITEM '&Fornecedor' ACTION manche(3,2) FONT fMenu
-               END POPUP
-               MENUITEM '&Exclusao' ACTION manche(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manche(5) FONT fMenu
-               POPUP '&Outros' FONT fMenu
-                  MENUITEM '&Emissao' ACTION manche(6,1) FONT fMenu
-                  MENUITEM '&Copia' ACTION manche(6,2) FONT fMenu
-                  MENUITEM '&Elimina' ACTION manche(6,3) FONT fMenu
-               END POPUP
-               MENUITEM '&Liberacao' ACTION manche(7) FONT fMenu
-            END POPUP
-            POPUP '&Cheque Pre' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manprd(1) FONT fMenu
-               MENUITEM '&Alteracao' ACTION manprd(2) FONT fMenu
-               POPUP '&Consulta' FONT fMenu
-                  MENUITEM '&Cheque' ACTION manprd(3,1) FONT fMenu
-                  MENUITEM '&Banco' ACTION manprd(3,2) FONT fMenu
-                  MENUITEM '&Emissao' ACTION manprd(3,3) FONT fMenu
-                  MENUITEM '&Vencimento' ACTION manprd(3,4) FONT fMenu
-                  MENUITEM '&Cliente' ACTION manprd(3,5) FONT fMenu
-                  MENUITEM '&Valor' ACTION manprd(3,6) FONT fMenu
-                  MENUITEM '&Entrada' ACTION manprd(3,7) FONT fMenu
-               END POPUP
-               MENUITEM '&Exclusao' ACTION manprd(4) FONT fMenu
-               POPUP '&Listagem' FONT fMenu
-                  MENUITEM '&Cheque' ACTION manprd(5,1) FONT fMenu
-                  MENUITEM '&Banco' ACTION manprd(5,2) FONT fMenu
-                  MENUITEM '&Emissao' ACTION manprd(5,3) FONT fMenu
-                  MENUITEM '&Vencimento' ACTION manprd(5,4) FONT fMenu
-                  MENUITEM '&Cliente' ACTION manprd(5,5) FONT fMenu
-                  MENUITEM '&Entrada' ACTION manprd(5,6) FONT fMenu
-               END POPUP
-               MENUITEM '&Baixa' ACTION manprd(6) FONT fMenu
+            POPUP '&Operacoes' NAME p65
+               MENUITEM '&Inclusao' NAME i280 ACTION manmcp(1)
+               MENUITEM '&Alteracao' NAME i281 ACTION manmcp(2)
+               MENUITEM '&Consulta' NAME i282 ACTION manmcp(3)
+               MENUITEM '&Exclusao' NAME i283 ACTION manmcp(4)
+               MENUITEM '&Listagem' NAME i284 ACTION manmcp(5)
             END POPUP
          END POPUP
-         POPUP '&Caixa' FONT fMenu
-            POPUP '&Aplicação' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manplx(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manplx(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manplx(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manplx(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manplx(5) FONT fMenu
+         POPUP '&Bancos' NAME p66
+            POPUP '&Conta' NAME p67
+               MENUITEM '&Inclusão' NAME i285 ACTION manban(1)
+               MENUITEM '&Alteração' NAME i286 ACTION manban(2)
+               MENUITEM '&Consulta' NAME i287 ACTION manban(3)
+               MENUITEM '&Exclusão' NAME i288 ACTION manban(4)
+               MENUITEM '&Listagem' NAME i289 ACTION manban(5)
+               MENUITEM '&Exercicio' NAME i290 ACTION manban(6)
             END POPUP
-            POPUP '&Historico' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manhix(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manhix(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manhix(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manhix(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manhix(5) FONT fMenu
+            POPUP '&Historico' NAME p68
+               MENUITEM '&Inclusão' NAME i291 ACTION manhib(1)
+               MENUITEM '&Alteração' NAME i292 ACTION manhib(2)
+               MENUITEM '&Consulta' NAME i293 ACTION manhib(3)
+               MENUITEM '&Exclusão' NAME i294 ACTION manhib(4)
+               MENUITEM '&Listagem' NAME i295 ACTION manhib(5)
             END POPUP
-            POPUP '&Fluxo de Caixa' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manlax(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manlax(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manlax(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manlax(4) FONT fMenu
-               POPUP '&Listagem' FONT fMenu
-                  MENUITEM '&Periodo' ACTION manlax(5,1) FONT fMenu
-                  MENUITEM '&Contas' ACTION manlax(5,2) FONT fMenu
+            POPUP '&Movimento' NAME p69
+               MENUITEM '&Inclusão' NAME i296 ACTION manlab(1)
+               MENUITEM '&Alteração' NAME i297 ACTION manlab(2)
+               MENUITEM '&Consulta' NAME i298 ACTION manlab(3)
+               MENUITEM '&Exclusão' NAME i299 ACTION manlab(4)
+               POPUP '&Listagem' NAME p70
+                  MENUITEM '&Instrução' NAME i300 ACTION manlcp(5,1)
+                  MENUITEM '&Diario' NAME i301 ACTION manlcp(5,2)
+                  MENUITEM '&Razão' NAME i302 ACTION manlcp(5,3)
+               END POPUP
+               MENUITEM '&Conciliar' NAME i303 ACTION manlab(6)
+            END POPUP
+            POPUP '&Cheque' NAME p71
+               MENUITEM '&Inclusão' NAME i304 ACTION manche(1)
+               MENUITEM '&Alteracao' NAME i305 ACTION manche(2)
+               POPUP '&Consulta' NAME p72
+                  MENUITEM '&Cheque' NAME i306 ACTION manche(3,1)
+                  MENUITEM '&Fornecedor' NAME i307 ACTION manche(3,2)
+               END POPUP
+               MENUITEM '&Exclusao' NAME i308 ACTION manche(4)
+               MENUITEM '&Listagem' NAME i309 ACTION manche(5)
+               POPUP '&Outros' NAME p73
+                  MENUITEM '&Emissao' NAME i310 ACTION manche(6,1)
+                  MENUITEM '&Copia' NAME i311 ACTION manche(6,2)
+                  MENUITEM '&Elimina' NAME i312 ACTION manche(6,3)
+               END POPUP
+               MENUITEM '&Liberacao' NAME i313 ACTION manche(7)
+            END POPUP
+            POPUP '&Cheque Pre' NAME p74
+               MENUITEM '&Inclusão' NAME i314 ACTION manprd(1)
+               MENUITEM '&Alteracao' NAME i315 ACTION manprd(2)
+               POPUP '&Consulta' NAME p75
+                  MENUITEM '&Cheque' NAME i316 ACTION manprd(3,1)
+                  MENUITEM '&Banco' NAME i317 ACTION manprd(3,2)
+                  MENUITEM '&Emissao' NAME i318 ACTION manprd(3,3)
+                  MENUITEM '&Vencimento' NAME i319 ACTION manprd(3,4)
+                  MENUITEM '&Cliente' NAME i320 ACTION manprd(3,5)
+                  MENUITEM '&Valor' NAME i321 ACTION manprd(3,6)
+                  MENUITEM '&Entrada' NAME i322 ACTION manprd(3,7)
+               END POPUP
+               MENUITEM '&Exclusao' NAME i323 ACTION manprd(4)
+               POPUP '&Listagem' NAME p76
+                  MENUITEM '&Cheque' NAME i324 ACTION manprd(5,1)
+                  MENUITEM '&Banco' NAME i325 ACTION manprd(5,2)
+                  MENUITEM '&Emissao' NAME i326 ACTION manprd(5,3)
+                  MENUITEM '&Vencimento' NAME i327 ACTION manprd(5,4)
+                  MENUITEM '&Cliente' NAME i328 ACTION manprd(5,5)
+                  MENUITEM '&Entrada' NAME i329 ACTION manprd(5,6)
+               END POPUP
+               MENUITEM '&Baixa' NAME i330 ACTION manprd(6)
+            END POPUP
+         END POPUP
+         POPUP '&Caixa' NAME p77
+            POPUP '&Aplicação' NAME p78
+               MENUITEM '&Inclusão' NAME i331 ACTION manplx(1)
+               MENUITEM '&Alteração' NAME i332 ACTION manplx(2)
+               MENUITEM '&Consulta' NAME i333 ACTION manplx(3)
+               MENUITEM '&Exclusão' NAME i334 ACTION manplx(4)
+               MENUITEM '&Listagem' NAME i335 ACTION manplx(5)
+            END POPUP
+            POPUP '&Historico' NAME p79
+               MENUITEM '&Inclusão' NAME i336 ACTION manhix(1)
+               MENUITEM '&Alteração' NAME i337 ACTION manhix(2)
+               MENUITEM '&Consulta' NAME i338 ACTION manhix(3)
+               MENUITEM '&Exclusão' NAME i339 ACTION manhix(4)
+               MENUITEM '&Listagem' NAME i340 ACTION manhix(5)
+            END POPUP
+            POPUP '&Fluxo de Caixa' NAME p80
+               MENUITEM '&Inclusão' NAME i341 ACTION manlax(1)
+               MENUITEM '&Alteração' NAME i342 ACTION manlax(2)
+               MENUITEM '&Consulta' NAME i343 ACTION manlax(3)
+               MENUITEM '&Exclusão' NAME i344 ACTION manlax(4)
+               POPUP '&Listagem' NAME p81
+                  MENUITEM '&Periodo' NAME i345 ACTION manlax(5,1)
+                  MENUITEM '&Contas' NAME i346 ACTION manlax(5,2)
                END POPUP
             END POPUP
-            POPUP '&Analitico' FONT fMenu
-               MENUITEM '&Titulos' ACTION mananx(1) FONT fMenu
-               MENUITEM '&Aplicacao' ACTION mananx(2) FONT fMenu
-               MENUITEM '&Caixa' ACTION mananx(3) FONT fMenu
+            POPUP '&Analitico' NAME p82
+               MENUITEM '&Titulos' NAME i347 ACTION mananx(1)
+               MENUITEM '&Aplicacao' NAME i348 ACTION mananx(2)
+               MENUITEM '&Caixa' NAME i349 ACTION mananx(3)
             END POPUP
-            POPUP '&Sintetico' FONT fMenu
-               MENUITEM '&Titulos' ACTION mansix(1) FONT fMenu
-               MENUITEM '&Aplicacao' ACTION mansix(2) FONT fMenu
+            POPUP '&Sintetico' NAME p83
+               MENUITEM '&Titulos' NAME i350 ACTION mansix(1)
+               MENUITEM '&Aplicacao' NAME i351 ACTION mansix(2)
             END POPUP
-            MENUITEM '&Resultado' ACTION demonx() FONT fMenu
+            MENUITEM '&Resultado' NAME i352 ACTION demonx()
          END POPUP
-         POPUP '&Outros' FONT fMenu
-            POPUP '&Convenios' FONT fMenu
-               MENUITEM '&Inclusão' ACTION mancve(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION mancve(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION mancve(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION mancve(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION mancve(5) FONT fMenu
+         POPUP '&Outros' NAME p84
+            POPUP '&Convenios' NAME p85
+               MENUITEM '&Inclusão' NAME i353 ACTION mancve(1)
+               MENUITEM '&Alteração' NAME i354 ACTION mancve(2)
+               MENUITEM '&Consulta' NAME i355 ACTION mancve(3)
+               MENUITEM '&Exclusão' NAME i356 ACTION mancve(4)
+               MENUITEM '&Listagem' NAME i357 ACTION mancve(5)
             END POPUP
-            POPUP '&CFOP Fiscal' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manfis(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manfis(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manfis(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manfis(4) FONT fMenu
-               MENUITEM '&Listagem' ACTION manfis(5) FONT fMenu
+            POPUP '&CFOP Fiscal' NAME p86
+               MENUITEM '&Inclusão' NAME i358 ACTION manfis(1)
+               MENUITEM '&Alteração' NAME i359 ACTION manfis(2)
+               MENUITEM '&Consulta' NAME i360 ACTION manfis(3)
+               MENUITEM '&Exclusão' NAME i361 ACTION manfis(4)
+               MENUITEM '&Listagem' NAME i362 ACTION manfis(5)
             END POPUP
-            POPUP '&Fiscal' FONT fMenu
-               MENUITEM '&Resumo ICMS' ACTION manapu(1) FONT fMenu
-               MENUITEM '&Livro ICMS' ACTION manapu(2) FONT fMenu
-               MENUITEM '&Apuracao ICMS' ACTION manapu(3) FONT fMenu
-               MENUITEM '&Pis/Cofins' ACTION manapu(4) FONT fMenu
-               MENUITEM '&Sped ICMS' ACTION manapu(5) FONT fMenu
+            POPUP '&Fiscal' NAME p87
+               MENUITEM '&Resumo ICMS' NAME i363 ACTION manapu(1)
+               MENUITEM '&Livro ICMS' NAME i364 ACTION manapu(2)
+               MENUITEM '&Apuracao ICMS' NAME i365 ACTION manapu(3)
+               MENUITEM '&Pis/Cofins' NAME i366 ACTION manapu(4)
+               MENUITEM '&Sped ICMS' NAME i367 ACTION manapu(5)
             END POPUP
-            POPUP '&Usuarios' FONT fMenu
-               MENUITEM '&Inclusão' ACTION manlog(1) FONT fMenu
-               MENUITEM '&Alteração' ACTION manlog(2) FONT fMenu
-               MENUITEM '&Consulta' ACTION manlog(3) FONT fMenu
-               MENUITEM '&Exclusão' ACTION manlog(4) FONT fMenu
-               MENUITEM '&Restricoes' ACTION manlog(5) FONT fMenu
+            POPUP '&Usuarios' NAME p88
+               MENUITEM '&Inclusão' NAME i368 ACTION manlog(1)
+               MENUITEM '&Alteração' NAME i369 ACTION manlog(2)
+               MENUITEM '&Consulta' NAME i370 ACTION manlog(3)
+               MENUITEM '&Exclusão' NAME i371 ACTION manlog(4)
+               MENUITEM '&Restricoes' NAME i372 ACTION manlog(5)
             END POPUP
-            MENUITEM '&Salva Configuração' ACTION salvaconf() FONT fMenu
+            MENUITEM '&Salva Configuração' NAME i373 ACTION salvaconf()
          END POPUP
       END MENU
    END WINDOW
    CENTER WINDOW frmMenu
    ACTIVATE WINDOW frmMenu
 RETURN NIL
+
+
+PROCEDURE AplicaFonteMenu()
+   LOCAL hFonte := GetFontHandle("fMenu")
+   _SetMenuItemFont( 'p1', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p2', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p3', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p4', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p5', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p6', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p7', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p8', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p9', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p10', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p11', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p12', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p13', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p14', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p15', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p16', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p17', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p18', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p19', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p20', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p21', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p22', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p23', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p24', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p25', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p26', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p27', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p28', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p29', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p30', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p31', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p32', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p33', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p34', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p35', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p36', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p37', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p38', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p39', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p40', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p41', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p42', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p43', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p44', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p45', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p46', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p47', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p48', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p49', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p50', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p51', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p52', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p53', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p54', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p55', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p56', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p57', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p58', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p59', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p60', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p61', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p62', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p63', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p64', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p65', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p66', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p67', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p68', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p69', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p70', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p71', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p72', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p73', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p74', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p75', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p76', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p77', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p78', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p79', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p80', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p81', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p82', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p83', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p84', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p85', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p86', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p87', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'p88', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i1', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i2', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i3', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i4', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i5', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i6', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i7', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i8', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i9', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i10', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i11', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i12', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i13', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i14', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i15', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i16', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i17', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i18', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i19', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i20', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i21', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i22', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i23', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i24', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i25', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i26', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i27', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i28', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i29', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i30', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i31', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i32', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i33', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i34', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i35', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i36', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i37', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i38', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i39', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i40', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i41', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i42', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i43', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i44', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i45', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i46', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i47', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i48', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i49', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i50', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i51', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i52', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i53', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i54', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i55', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i56', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i57', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i58', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i59', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i60', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i61', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i62', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i63', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i64', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i65', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i66', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i67', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i68', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i69', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i70', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i71', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i72', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i73', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i74', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i75', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i76', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i77', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i78', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i79', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i80', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i81', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i82', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i83', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i84', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i85', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i86', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i87', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i88', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i89', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i90', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i91', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i92', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i93', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i94', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i95', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i96', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i97', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i98', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i99', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i100', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i101', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i102', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i103', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i104', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i105', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i106', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i107', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i108', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i109', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i110', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i111', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i112', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i113', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i114', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i115', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i116', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i117', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i118', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i119', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i120', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i121', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i122', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i123', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i124', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i125', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i126', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i127', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i128', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i129', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i130', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i131', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i132', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i133', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i134', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i135', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i136', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i137', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i138', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i139', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i140', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i141', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i142', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i143', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i144', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i145', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i146', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i147', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i148', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i149', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i150', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i151', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i152', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i153', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i154', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i155', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i156', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i157', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i158', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i159', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i160', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i161', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i162', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i163', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i164', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i165', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i166', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i167', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i168', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i169', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i170', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i171', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i172', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i173', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i174', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i175', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i176', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i177', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i178', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i179', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i180', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i181', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i182', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i183', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i184', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i185', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i186', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i187', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i188', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i189', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i190', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i191', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i192', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i193', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i194', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i195', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i196', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i197', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i198', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i199', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i200', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i201', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i202', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i203', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i204', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i205', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i206', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i207', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i208', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i209', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i210', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i211', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i212', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i213', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i214', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i215', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i216', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i217', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i218', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i219', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i220', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i221', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i222', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i223', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i224', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i225', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i226', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i227', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i228', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i229', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i230', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i231', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i232', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i233', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i234', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i235', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i236', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i237', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i238', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i239', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i240', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i241', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i242', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i243', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i244', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i245', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i246', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i247', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i248', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i249', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i250', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i251', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i252', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i253', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i254', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i255', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i256', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i257', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i258', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i259', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i260', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i261', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i262', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i263', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i264', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i265', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i266', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i267', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i268', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i269', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i270', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i271', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i272', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i273', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i274', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i275', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i276', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i277', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i278', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i279', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i280', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i281', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i282', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i283', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i284', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i285', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i286', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i287', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i288', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i289', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i290', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i291', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i292', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i293', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i294', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i295', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i296', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i297', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i298', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i299', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i300', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i301', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i302', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i303', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i304', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i305', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i306', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i307', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i308', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i309', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i310', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i311', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i312', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i313', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i314', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i315', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i316', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i317', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i318', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i319', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i320', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i321', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i322', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i323', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i324', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i325', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i326', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i327', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i328', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i329', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i330', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i331', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i332', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i333', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i334', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i335', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i336', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i337', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i338', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i339', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i340', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i341', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i342', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i343', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i344', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i345', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i346', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i347', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i348', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i349', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i350', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i351', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i352', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i353', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i354', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i355', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i356', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i357', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i358', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i359', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i360', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i361', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i362', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i363', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i364', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i365', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i366', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i367', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i368', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i369', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i370', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i371', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i372', 'frmMenu', hFonte )
+   _SetMenuItemFont( 'i373', 'frmMenu', hFonte )
+RETURN
 
