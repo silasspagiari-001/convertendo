@@ -55,7 +55,7 @@ linhas = [
     '',
     'FUNCTION MenuPrincipalMG()',
     "   SET MENUSTYLE EXTENDED",
-    "   DEFINE WINDOW frmMenu AT 0,0 WIDTH 800 HEIGHT 600 TITLE 'Atlas' MAIN ON INIT AplicaFonteMenu",
+    "   DEFINE WINDOW frmMenu AT 0,0 WIDTH 800 HEIGHT 600 TITLE 'Atlas' MAIN ON INIT {|| AplicaFonteMenu() }",
     f"      DEFINE FONT fMenu FONTNAME '{MENU_FONT}' SIZE {MENU_SIZE}",
     '      DEFINE MAIN MENU',
 ]
