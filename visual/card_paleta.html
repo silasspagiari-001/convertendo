@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Card - Paleta visual WVT (estilo petróleo)</title>
+<style>
+  body { margin:0; font-family: Arial, sans-serif; background:#eef1f4; color:#222; }
+  .wrap { max-width: 1000px; margin: 24px auto; padding: 0 16px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  p.sub { margin: 0 0 18px; color:#555; font-size: 14px; }
+  .card { background:#fff; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,.12); padding:18px; margin-bottom:18px; }
+  .card h2 { font-size:16px; margin:0 0 10px; }
+  .tela { font-family: "Courier New", Consolas, monospace; font-size: 15px; line-height: 1.35;
+          background:#c0c0c0; color:#000; border:1px solid #444; }
+  .titulo { background:#008b8b; color:#fff; text-align:center; padding:4px 0; letter-spacing:1px; }
+  .menu { background:#e6e6e6; padding:4px 8px; }
+  .menu span { margin-right:18px; }
+  .menu span.sel { background:#000; color:#fff; padding:0 6px; }
+  .janela { margin:14px 18px; background:#c0c0c0; border:2px solid #fff; outline:1px solid #444; padding:10px 12px 14px; }
+  .secao { background:#008b8b; color:#fff; padding:0 6px; display:inline-block; margin-bottom:8px; }
+  .linha { display:flex; align-items:center; gap:8px; margin:4px 0; }
+  .lbl { width:110px; text-align:right; color:#000; }
+  .campo { background:#fff; color:#000; border:1px solid #888; min-width:200px; padding:0 6px; }
+  .campo.foco { background:#008b8b; color:#fff; }
+  .campo.ro { background:#d0d0d0; }
+  .grade { background:#0b0b5c; color:#fff; padding:2px 6px; margin-top:10px; }
+  .legenda { display:grid; grid-template-columns: 200px 1fr; gap:6px 12px; font-size:14px; }
+  .sw { display:inline-block; width:14px; height:14px; border:1px solid #444; vertical-align:middle; margin-right:6px; }
+  .dica { font-size:13px; color:#444; margin-top:8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Paleta visual das telas (WVT) - estilo petróleo</h1>
+  <p class="sub">Prévia aproximada. As cores reais dependem do terminal do Windows.</p>
+
+  <div class="card">
+    <h2>1. Tela de exemplo: cadastro</h2>
+    <div class="tela">
+      <div class="titulo">ATLAS DIAGNOSTICA COM PROD LAB LTDA ME</div>
+      <div class="menu"><span class="sel">Estoque</span><span>Faturar</span><span>Receber</span><span>Pagar</span><span>Bancos</span><span>Caixa</span><span>Outros</span></div>
+      <div class="janela">
+        <div class="secao">Dados Cliente</div>
+        <div class="linha"><div class="lbl">Código:</div><div class="campo foco" style="min-width:60px">1</div>
+          <div class="lbl" style="width:auto">Cpf/Cnpj:</div><div class="campo" style="min-width:170px">070.492.978/36</div></div>
+        <div class="linha"><div class="lbl">Nome:</div><div class="campo" style="min-width:380px">SUELI PLACIDO DOS SANTOS SILVA</div></div>
+        <div class="linha"><div class="lbl">Endereço:</div><div class="campo" style="min-width:380px">R:LARGO SENADOR MORAIS BARROS, 41</div></div>
+        <div class="linha"><div class="lbl">Dte:</div><div class="campo ro" style="min-width:90px">28/04/26</div></div>
+        <div class="secao" style="margin-top:8px">Dados de Cobrança</div>
+        <div class="linha"><div class="lbl">Cep:</div><div class="campo" style="min-width:80px">3014-10</div></div>
+      </div>
+      <div class="grade">SQ Código   Qtde    Descrição                 Unitário     Total</div>
+    </div>
+    <p class="dica">Campo com foco: fundo ciano. Campo somente leitura: cinza. Títulos de seção: faixa ciano.</p>
+  </div>
+
+  <div class="card">
+    <h2>2. Legenda das cores</h2>
+    <div class="legenda">
+      <div><span class="sw" style="background:#008b8b"></span>Ciano petróleo</div><div>Títulos de seção, barra superior, campo com foco</div>
+      <div><span class="sw" style="background:#c0c0c0"></span>Cinza claro</div><div>Fundo das telas</div>
+      <div><span class="sw" style="background:#ffffff"></span>Branco</div><div>Campos de digitação</div>
+      <div><span class="sw" style="background:#d0d0d0"></span>Cinza mais claro</div><div>Campos somente leitura</div>
+      <div><span class="sw" style="background:#000000"></span>Preto</div><div>Textos e item de menu selecionado</div>
+      <div><span class="sw" style="background:#0b0b5c"></span>Azul-marinho</div><div>Cabeçalho da grade</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>3. Mapeamento para o código (MENUAGRO.PRG, branch visual-wvt)</h2>
+    <div class="legenda" style="font-family:Consolas,monospace;font-size:13px">
+      <div>_CORTELAS_</div><div>"N/W" (texto preto, fundo cinza claro)</div>
+      <div>_COREDICAO_</div><div>"N/W+,W+/BG*,,,N/W+" (campo branco, foco ciano)</div>
+      <div>_CORPROMPT_</div><div>"W+/BG,N/W" (barra de menus e opções)</div>
+      <div>_CORBOXLISTA_</div><div>"N/W+" (listas)</div>
+      <div>_CORF2_</div><div>"N/W*,W+/BG" (campos com consulta F2)</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
