@@ -1,0 +1,467 @@
+# Menu extraído de NOVOMENU (MENUAGRO.PRG) - gerado por tools/extrai_menu.py
+# Itens ativos: 455 | Submenus: 89 | Separadores: 4 | Barra: 7
+# Formato: menu-pai | rótulo | ação (bloco ou chamada) | id
+
+BARRA | &Estoque | submenu mEst
+BARRA | &Faturar | submenu mFat
+BARRA | &Receber | submenu mRec
+BARRA | &Pagar | submenu mPag
+BARRA | &Bancos | submenu mBan
+BARRA | &Caixa | submenu mCai
+BARRA | &Outros | submenu mOut
+
+mEst | &Empresas | (sem ação) | 1
+mEst | &Produtos | (sem ação) | 2
+mEst | &Fornecedores | (sem ação) | 3
+mEst | &Kardex | (sem ação) | 4
+mEst | &Grupos | (sem ação) | 5
+mEst | &Codigo NCM | (sem ação) | 6
+mEst | &Nota Fiscal Entrada | (sem ação) | 7
+mEstemp | &Inclusão | { || manemp(1) } | 8
+mEstemp | &Alteração | { || manemp(2) } | 9
+mEstemp | &Consulta | { || manemp(3) } | 10
+mEstemp | &Exclusão | { || manemp(4) } | 11
+mEstemp | &Listagem | { || manemp(5) } | 12
+mEstemp | &Parametro | { || manemp(6) } | 13
+mEstpro | &Inclusão | { ||manpro(1)} | 14
+mEstpro | &Alteração | { ||manpro(2)} | 15
+mEstpro | &Consulta | { ||manpro(3)} | 16
+mEstpro | &Exclusão | { ||manpro(4)} | 17
+mEstProlis | &Relaçäo de Compra | { ||manpro(5,1)} | 18
+mEstProlis | &Relaçäo por Grupo | { ||manpro(5,2)} | 19
+mEstProlis | &Lista Preços Venda | { ||manpro(5,3)} | 20
+mEstProlis | &Planilha Balanco | { ||manpro(5,4)} | 21
+mEstProlis | &Inventario Conferencia | { ||manpro(5,5)} | 22
+mEstProlisSaldo | &Saldos de todos os Produtos | { ||manpro(5,6,1)} | 23
+mEstProlisSaldo | &Produtos Com Saldo Positivo | { ||manpro(5,6,2)} | 24
+mEstProlisSaldo | &Produtos Com Saldo Negativo | { ||manpro(5,6,3)} | 25
+mEstProlisSaldo | &Produtos Com Saldo Zerado | { ||manpro(5,6,4)} | 26
+mEstProlisSaldo | &Näo Movimentados desde (MM/AA) | { ||manpro(5,6,5)} | 27
+mEstProlisSaldo | &Produtos Acima Estoque MAXIMO | { ||manpro(5,6,6)} | 28
+mEstProlisSaldo | &Produtos Abaixo Estoque MINIMO | { ||manpro(5,6,7)} | 29
+mEstProlis | &Lista de Saldos | (sem ação) | 30
+mEstProlis | &Inventario Efetivo | { ||manpro(5,7)} | 31
+mEstProlisFabri | &Saldos de todos os Produtos | { ||manpro(5,8,1)} | 32
+mEstProlisFabri | &Produtos Com Saldo Positivo | { ||manpro(5,8,2)} | 33
+mEstProlisFabri | &Produtos Com Saldo Negativo | { ||manpro(5,8,3)} | 34
+mEstProlisFabri | &Produtos Com Saldo Zerado | { ||manpro(5,8,4)} | 35
+mEstProlisFabri | &Näo Movimentados desde (MM/AA) | { ||manpro(5,8,5)} | 36
+mEstProlisFabri | &Produtos Acima Estoque MAXIMO | { ||manpro(5,8,6)} | 37
+mEstProlisFabri | &Produtos Abaixo Estoque MINIMO | { ||manpro(5,8,7)} | 38
+mEstProlis | &Lista por Fabricante | (sem ação) | 39
+mEstProlis | &Classificacao Fiscal | { ||manpro(5,9)} | 40
+mEstpro | &Listagem | (sem ação) | 41
+mEstProPre | &Altera preço Custo | { ||manpro(6,1)} | 42
+mEstProPre | &Altera preço Venda | { ||manpro(6,2)} | 43
+mEstProPre | &Altera preço Geral | { ||manpro(6,3)} | 44
+mEstpro | &Preços | (sem ação) | 45
+mEstpro | &Arquivo Morto | { ||manpro(7)} | 46
+mEstpro | &Codigos Fornecedores | { ||manpro(8)} | 47
+mEstFor | &Inclusão | { ||manfor(1)} | 48
+mEstFor | &Alteração | { ||manfor(2)} | 49
+mEstFor | &Consulta | { ||manfor(3)} | 50
+mEstFor | &Exclusão | { ||manfor(4)} | 51
+mEstFor | &Listagem | { ||manfor(5)} | 52
+mEstFor | &Etiquetas | { ||manfor(6)} | 53
+mEstFor | &Arquivo Morto | { ||manfor(7)} | 54
+mEstkar | &Inclusão | { ||mankar(1)} | 55
+mEstkar | &Alteração | { ||mankar(2)} | 56
+mEstkarConsulta | &Movimento | { ||mankar(3,1)} | 57
+mEstkarConsulta | &Compras | { ||mankar(3,2)} | 58
+mEstkarConsulta | &Vendas | { ||mankar(3,3)} | 59
+mEstkarConsulta | &Grafico V | { ||mankar(3,4)} | 60
+mEstkarConsulta | &Grafico C | { ||mankar(3,5)} | 61
+mEstkar | &Consulta | (sem ação) | 62
+mEstkar | &Exclusão | { ||mankar(4)} | 63
+mEstkarListagem | &Movimento | { ||mankar(5,1)} | 64
+mEstkarListagem | &Entrada/Saida | { ||mankar(5,2)} | 65
+mEstkar | &Listagem | (sem ação) | 66
+mEstkarOutros | &Saldo Individual | { ||mankar(6,1)} | 67
+mEstkarOutros | &Saldo Geral | { ||mankar(6,2)} | 68
+mEstkarOutros | &Custo Medio | { ||mankar(6,3)} | 70
+mEstkarOutros | &Grafico Anual | { ||mankar(6,4)} | 71
+mEstkarOutros | &Finaliza Exercicio | { ||mankar(6,5)} | 72
+mEstkar | &Outros | (sem ação) | 73
+mEstGru | &Inclusão | { ||mangrp(1)} | 74
+mEstGru | &Alteração | { ||mangrp(2)} | 75
+mEstGru | &Consulta | { ||mangrp(3)} | 76
+mEstGru | &Exclusão | { ||mangrp(4)} | 77
+mEstGru | &Listagem | { ||mangrp(5)} | 78
+mEstNfe | &Inclusão | { ||mannfe(1)} | 79
+mEstNfe | &Alteração | { ||mannfe(2)} | 80
+mEstNfe | &Consulta | { ||mannfe(3)} | 81
+mEstNfe | &Exclusão | { ||mannfe(4)} | 82
+mEstNfeListagem | &Analitico | { ||mannfe(5,1)} | 83
+mEstNfeListagem | &Sintético | { ||mannfe(5,2)} | 84
+mEstNfe | &Listagem | (sem ação) | 85
+mEstNfe | &Implementacao | { ||mannfe(6)} | 86
+mEstNfe | &Ler XML | { ||mannfe(7)} | 87
+mEstNcm | &Inclusão | { ||manncm(1)} | 88
+mEstNcm | &Alteração | { ||manncm(2)} | 89
+mEstNcm | &Consulta | { ||manncm(3)} | 90
+mEstNcm | &Exclusão | { ||manncm(4)} | 91
+mEstNcm | &Listagem | { ||manncm(5)} | 92
+mFatNotas | &Emissão | { || mannfs(1) } | 100
+mFatNotasAlt | &Nota Fiscal | { || mannfs(2,1) } | 101
+mFatNotasAlt | &Escrituracao | { || mannfs(2,2) } | 102
+mFatNotasAlt | &Natureza | { || mannfs(2,3) } | 103
+mFatNotasAlt | &Relatorio | { || mannfs(2,4) } | 104
+mFatNotas | &Alteração | (sem ação) | 105
+mFatNotas | &Consulta | { || mannfs(3)} | 106
+mFatNotas | &Exclusão | { || mannfs(4)} | 107
+mFatNotasListagem | &Sintetica Notas Fiscais | { || mannfs(5,1) } | 108
+mFatNotasListagem | &Cliente Analitico | { || mannfs(5,2) } | 109
+mFatNotasListagem | &Cliente Sintetico | { || mannfs(5,3) } | 110
+mFatNotasListagem | &Nota de Servico | { || mannfs(5,4) } | 111
+mFatNotasListagem | &Vendedor Notas | { || mannfs(5,5) } | 112
+mFatNotasListagem | &Vendedor Sintetico | { || mannfs(5,6) } | 113
+mFatNotasListagem | &Municipio Sintetico | { || mannfs(5,7) } | 114
+mFatNotasListagem | &Produto Sintetico | { || mannfs(5,8) } | 115
+mFatNotasListagem | &Notas Emitidas no Periodo | { || mannfs(5,9) } | 116
+mFatNotasListagem | &Margem Bruta de Vendas | { || mannfs(5,11) } | 117
+mFatNotasListagem | &Etiquetas de Caixa | { || mannfs(5,11) } | 118
+mFatNotasListagem | &Faturamento | { || mannfs(5,12) } | 119
+mFatNotasListagem | &Notas no Periodo (Antigo) | { || mannfs(5,14) } | 120
+mFatNotasListagem | &Produtos Isentos | { || mannfs(5,15) } | 121
+mFatNotasListagem | &IMS | { || mannfs(5,16) } | 122
+mFatNotasListagem | &Prodiet | { || mannfs(5,17) } | 122
+mFatNotas | &Listagem | (sem ação) | 123
+mFatNotasOut | &Carta de Correcao | { || mannfs(6,1)} | 124
+mFatNotasOut | &Cancelamento | { || mannfs(6,2)} | 125
+mFatNotasOut | &Reemissao | { || mannfs(6,3)} | 126
+mFatNotasOut | &Enviar Email | { || mannfs(6,4)} | 127
+mFatNotas | &Outros | (sem ação) | 128
+mFatNotas | &Transporte | { || mannfs(7)} | 129
+mFatNotas | &Inclusao | { || mannfs(8) } | 130
+mFatNotas | &Carta de Credito | { || emicre()} | 107
+mFatNotas | &Etiqueta Argox | { || mangel1()} | 107
+mFat | &Nota Fiscal | (sem ação) | 131
+mFatPedidos | &Emissão | { || manped(1)} | 132
+mFatPedidos | &Alteração | { || manped(2)} | 133
+mFatPedidosCon | &Pedido | { || manped(3,1)} | 134
+mFatPedidosCon | &Cliente | { || manped(3,2)} | 135
+mFatPedidos | &Consulta | (sem ação) | 137
+mFatPedidos | &Exclusão | { || manped(4)} | 138
+mFatPedidosListagem | &Listagem de Pedidos | { || manped(5,1)} | 139
+mFatPedidosListagem | &Relacao por Produto | { || manped(5,2)} | 140
+mFatPedidosListagem | &Sintetica Pedidos | { || manped(5,3)} | 141
+mFatPedidosListagem | &Relacao por Grupo | { || manped(5,4)} | 142
+mFatPedidosListagem | &Relacao por Cliente | { || manped(5,5)} | 143
+mFatPedidosListagem | &Analitico Vendedor | { || manped(5,6)} | 144
+mFatPedidos | &Listagem | (sem ação) | 145
+mFatPedidosOutros | &Alteracao | { || manped(6,1)} | 146
+mFatPedidosOutros | &Emissao Nota | { || manped(6,2)} | 147
+mFatPedidos | &Agrupamento | (sem ação) | 148
+mFat | &Orcamento | (sem ação) | 149
+mFatRequisi | &Emissão | { || manreq(1)} | 150
+mFatRequisi | &Reemissão | { || manreq(7)} | 150
+mFatRequisi | &Alteração | { || manreq(2)} | 151
+mFatRequisiCon | &Aluguel | { || manreq(3,1)} | 152
+mFatRequisiCon | &Cliente | { || manreq(3,2)} | 153
+mFatRequisi | &Consulta | (sem ação) | 154
+mFatRequisi | &Exclusão | { || manreq(4)} | 155
+mFatRequisiListagem | &Listagem de Requisicoes | { || manreq(5,1)} | 156
+mFatRequisiListagem | &Relacao por Produto | { || manreq(5,2)} | 157
+mFatRequisiListagem | &Analitica Requisicao | { || manreq(5,3)} | 158
+mFatRequisiListagem | &Sintetica Requisicao | { || manreq(5,4)} | 159
+mFatRequisiListagem | &Relacao por Cliente | { || manreq(5,5)} | 160
+mFatRequisiListagem | &Analitico Vendedor | { || manreq(5,6)} | 161
+mFatRequisiListagem | &Analitico Clilente | { || manreq(5,7)} | 162
+mFatRequisiListagem | &Resumo de Vendas | { || manreq(5,8)} | 163
+mFatRequisiListagem | &Mapa Resumido Indicado | { || manreq(5,9)} | 164
+mFatRequisi | &Listagem | (sem ação) | 165
+mFatRequisiOutros | &Renovacao | { || manreq(6,1)} | 166
+mFatRequisiOutros | &Encerramento | { || manreq(6,2)} | 167
+mFatRequisiOutros | &Listagem | { || manreq(6,3)} | 168
+mFatRequisi | &Aluguel | (sem ação) | 169
+mFat | &Requisição | (sem ação) | 170
+mFatSat | &Emissão | { || mansat(1,1)} | 171
+mFatSat | &Inclusão | { || mansat(1,2)} | 172
+mFatSat | &Alteração | { || mansat(2)} | 173
+mFatSatCon | &Cupom Fiscal | { || mansat(3,1)} | 174
+mFatSatCon | &Cliente | { || mansat(3,2)} | 175
+mFatSat | &Consulta | (sem ação) | 176
+mFatSat | &Reemissão | { || mansat(4)} | 177
+mFatSatListagem | &Faturamento do Dia | { || mansat(5,1)} | 178
+mFatSatListagem | &Mapa Resumo Fiscal | { || mansat(5,2)} | 179
+mFatSatListagem | &Produto Sintetica | { || mansat(5,3)} | 180
+mFatSat | &Listagem | (sem ação) | 181
+mFatSat | &Cancelamento | { || mansat(6)} | 182
+mFat | &Cupom Eletronico | (sem ação) | 183
+mFatCli | &Inclusão | { || mancli(1) } | 183
+mFatCli | &Alteração | { || mancli(2) } | 184
+mFatCli | &Consulta | { || mancli(3)} | 185
+mFatCli | &Exclusão | { || mancli(4)} | 186
+mFatCliLista | &Completa Codigo | { || mancli(5,1)} | 187
+mFatCliLista | &Completa CPF/CNPJ | { || mancli(5,2)} | 188
+mFatCliLista | &Completa Alfabetica | { || mancli(5,3)} | 189
+mFatCliLista | &Catalogo Codigo | { || mancli(5,4)} | 190
+mFatCliLista | &Catalogo CPF/CNPJ | { || mancli(5,5)} | 191
+mFatCliLista | &Catalogo Alfabetica | { || mancli(5,6)} | 192
+mFatCliLista | &Catalogo Municipio | { || mancli(5,7)} | 193
+mFatCli | &Listagem | (sem ação) | 194
+mFatCliEtiqueta | &Codigo | { || mancli(6,1)} | 194
+mFatCliEtiqueta | &Seleção | { || mancli(6,2)} | 195
+mFatCliEtiqueta | &Nome | { || mancli(6,3)} | 196
+mFatCliEtiqueta | &Parametro | { || mancli(6,4)} | 197
+mFatCli | &Etiqueta | (sem ação) | 198
+mFatCli | &Arquivo Morto | { || mancli(7)} | 199
+mFatCliTipo | &Inclusão | { || mancli(8,1)} | 200
+mFatCliTipo | &Alteração | { || mancli(8,2)} | 201
+mFatCliTipo | &Consulta | { || mancli(8,3)} | 202
+mFatCliTipo | &Exclusão | { || mancli(8,4)} | 203
+mFatCliTipo | &Listagem | { || mancli(8,5)} | 204
+mFatCli | &Tipo Cliente | (sem ação) | 205
+mFat | &Clientes | (sem ação) | 206
+mFatVen | &Inclusão | { || manven(1)} | 207
+mFatVen | &Alteração | { || manven(2)} | 208
+mFatVen | &Consulta | { || manven(3)} | 209
+mFatVen | &Exclusão | { || manven(4)} | 210
+mFatVen | &Listagem | { || manven(5)} | 211
+mFatVenComissao | &Pagameto | { || manven(6,1)} | 212
+mFatVenComissao | &Vencimento | { || manven(6,2)} | 213
+mFatVenComissao | &Emissao | { || manven(6,3)} | 214
+mFatVenComissao | &Aberto | { || manven(6,4)} | 215
+mFatVen | &Comissão | (sem ação) | 216
+mFat | &Vendedores | (sem ação) | 217
+mFatTra | &Inclusão | { || mantra(1)} | 218
+mFatTra | &Alteração | { || mantra(2)} | 219
+mFatTra | &Consulta | { || mantra(3)} | 220
+mFatTra | &Exclusão | { || mantra(4)} | 221
+mFatTra | &Listagem | { || mantra(5)} | 222
+mFat | &Transportadora | (sem ação) | 223
+mFatCpg | &Inclusão | { || mancpg(1)} | 224
+mFatCpg | &Alteração | { || mancpg(2)} | 225
+mFatCpg | &Consulta | { || mancpg(3)} | 226
+mFatCpg | &Exclusão | { || mancpg(4)} | 227
+mFatCpg | &Listagem | { || mancpg(5)} | 228
+mFat | &Pagamentos | (sem ação) | 229
+mFatInd | &Inclusão | { || manind(1)} | 230
+mFatInd | &Alteração | { || manind(2)} | 231
+mFatInd | &Consulta | { || manind(3)} | 232
+mFatInd | &Exclusão | { || manind(4)} | 233
+mFatInd | &Listagem | { || manind(5)} | 234
+mFat | &Indicado | (sem ação) | 235
+mFat | &Mensagem NF | { || manmsg()} | 234
+mFinReceberDup | &Inclusão | { || mandcr(1)} | 236
+mFinReceberDupAlt | &Titulo | { || mandcr(2,1)} | 237
+mFinReceberDupAlt | &Pagamento | { || mandcr(2,3)} | 239
+mFinReceberDupAlt | &Exportar | { || mandcr(2,4)} | 240
+mFinReceberDup | &Alteracao | (sem ação) | 241
+mFinReceberDupCon | &Sequencia | { || mandcr(3,1)} | 242
+mFinReceberDupCon | &Vencidas | { || mandcr(3,2)} | 243
+mFinReceberDupCon | &Emissao | { || mandcr(3,3)} | 244
+mFinReceberDupCon | &Codigos | { || mandcr(3,4)} | 245
+mFinReceberDupCon | &Portador | { || mandcr(3,5)} | 246
+mFinReceberDupCon | &Pagamento | { || mandcr(3,6)} | 247
+mFinReceberDup | &Consulta | (sem ação) | 248
+mFinReceberDup | &Exclusão | { || mandcr(4)} | 249
+mFinReceberDupLis | &Perda | { || mandcr(5,1)} | 250
+mFinReceberDupLis | &Vencidas | { || mandcr(5,2)} | 251
+mFinReceberDupLis | &Nome | { || mandcr(5,3)} | 252
+mFinReceberDupLis | &Codigo | { || mandcr(5,4)} | 253
+mFinReceberDupLis | &Portador | { || mandcr(5,5)} | 254
+mFinReceberDupLis | &Pagamento | { || mandcr(5,6)} | 255
+mFinReceberDupLis | &Sequencia | { || mandcr(5,7)} | 256
+mFinReceberDupLis | &Emissão | { || mandcr(5,8)} | 257
+mFinReceberDupLis | &Cidade | { || mandcr(5,9)} | 258
+mFinReceberDup | &Listagem | (sem ação) | 259
+mFinReceberDupTit | &Brasil | { || mandcr(6,1)} | 264
+mFinReceberDupTit | &Sicred     | { || mandcr(6,2)} | 265
+mFinReceberDup | &Titulos | (sem ação) | 267
+mRec | &Duplicata | (sem ação) | 268
+mFinReceberIns | &Inclusão | { || manlcr(1)} | 269
+mFinReceberIns | &Alteração | { || manlcr(2)} | 270
+mFinReceberInsCon | &Instrução | { || manlcr(3,1)} | 271
+mFinReceberInsCon | &Duplicata | { || manlcr(3,2)} | 272
+mFinReceberInsCon | &Cliente | { || manlcr(3,3)} | 273
+mFinReceberIns | &Consulta | (sem ação) | 274
+mFinReceberIns | &Exclusão | { || manlcr(4)} | 275
+mFinReceberInsLis | &Instrução | { || manlcr(5,1)} | 276
+mFinReceberInsLis | &Diario | { || manlcr(5,2)} | 277
+mFinReceberInsLis | &Razão | { || manlcr(5,3)} | 278
+mFinReceberIns | &Listagem | (sem ação) | 279
+mFinReceberIns | &Fechamento | { || manlcr(6)} | 280
+mRec | &Instrução | (sem ação) | 281
+mFinBaixa | &Documento | { || manbcr(1)} | 282
+mFinBaixa | &Clientes | { || manbcr(2)} | 283
+mFinBaixa | &Recepcão | { || manbcr(3)} | 284
+mFinBaixa | &Consiste | { || manbcr(4)} | 285
+mFinBaixa | &Listagem | { || manbcr(5)} | 286
+mRec | &Baixas | (sem ação) | 287
+mFinOpera | &Inclusao | { || manmcr(1)} | 288
+mFinOpera | &Alteracao | { || manmcr(2)} | 289
+mFinOpera | &Consulta | { || manmcr(3)} | 290
+mFinOpera | &Exclusao | { || manmcr(4)} | 291
+mFinOpera | &Listagem | { || manmcr(5)} | 292
+mRec | &Operacoes | (sem ação) | 293
+mFinBcoPor | &Inclusão | { || manpor(1)} | 294
+mFinBcoPor | &Alteração | { || manpor(2)} | 295
+mFinBcoPor | &Consulta | { || manpor(3)} | 296
+mFinBcoPor | &Exclusão | { || manpor(4)} | 297
+mFinBcoPor | &Listagem | { || manpor(5)} | 298
+mRec | &Portadores | (sem ação) | 299
+mFinExport | &Remessa | { || manexp(1)} | 300
+mFinExport | &Lista Retorno | { || manexp(2)} | 301
+mFinExport | &Baixa Retorno | { || manexp(3)} | 302
+mRec | &Exportar | (sem ação) | 303
+mFinEtique | &Inclusão | { || manetq(1)} | 304
+mFinEtique | &Alteração | { || manetq(2)} | 305
+mFinEtique | &Consulta | { || manetq(3)} | 306
+mFinEtique | &Exclusão | { || manetq(4)} | 307
+mFinEtique | &Listagem | { || manetq(5)} | 308
+mFinEtique | &Parametro | { || manetq(6)} | 309
+mRec | &Etiquetas | (sem ação) | 310
+mFinPagarDup | &Inclusão | { || mandcp(1)} | 311
+mFinPagarDupAlt | &Titulo | { || mandcp(2,1)} | 312
+mFinPagarDupAlt | &Portador | { || mandcp(2,3)} | 313
+mFinPagarDup | &Alteracao | (sem ação) | 314
+mFinPagarDupCon | &Sequencia | { || mandcp(3,1)} | 315
+mFinPagarDupCon | &Vencidas | { || mandcp(3,2)} | 316
+mFinPagarDupCon | &Emissao | { || mandcp(3,3)} | 317
+mFinPagarDupCon | &Codigos | { || mandcp(3,4)} | 318
+mFinPagarDupCon | &Portador | { || mandcp(3,5)} | 319
+mFinPagarDupCon | &Pagamento | { || mandcp(3,6)} | 320
+mFinPagarDup | &Consulta | (sem ação) | 321
+mFinPagarDup | &Exclusão | { || mandcp(4)} | 322
+mFinPagarDupLis | &Sequencia | { || mandcp(5,1)} | 323
+mFinPagarDupLis | &Vencidas | { || mandcp(5,2)} | 324
+mFinPagarDupLis | &Nome | { || mandcp(5,3)} | 325
+mFinPagarDupLis | &Codigo | { || mandcp(5,4)} | 326
+mFinPagarDupLis | &Portador | { || mandcp(5,5)} | 327
+mFinPagarDupLis | &Pagamento | { || mandcp(5,6)} | 328
+mFinPagarDup | &Listagem | (sem ação) | 329
+mPag | &Duplicata | (sem ação) | 330
+mFinPagarIns | &Inclusão | { || manlcp(1)} | 331
+mFinPagarIns | &Alteração | { || manlcp(2)} | 332
+mFinPagarInsCon | &Instrução | { || manlcp(3,1)} | 333
+mFinPagarInsCon | &Duplicata | { || manlcp(3,2)} | 334
+mFinPagarInsCon | &Fornecedor | { || manlcp(3,3)} | 335
+mFinPagarIns | &Consulta | (sem ação) | 336
+mFinPagarIns | &Exclusão | { || manlcp(4)} | 337
+mFinPagarInsLis | &Instrução | { || manlcp(5,1)} | 338
+mFinPagarInsLis | &Diario | { || manlcp(5,2)} | 339
+mFinPagarInsLis | &Razão | { || manlcp(5,3)} | 340
+mFinPagarIns | &Listagem | (sem ação) | 341
+mFinPagarIns | &Fechamento | { || manlcp(6)} | 342
+mPag | &Instrução | (sem ação) | 343
+mFinBaixap | &Documento | { || manbcp(1)} | 344
+mFinBaixap | &Fornecedor | { || manbcp(2)} | 345
+mFinBaixap | &Listagem | { || manbcp(3)} | 346
+mPag | &Baixas | (sem ação) | 347
+mFinOperap | &Inclusao | { || manmcp(1)} | 348
+mFinOperap | &Alteracao | { || manmcp(2)} | 349
+mFinOperap | &Consulta | { || manmcp(3)} | 350
+mFinOperap | &Exclusao | { || manmcp(4)} | 351
+mFinOperap | &Listagem | { || manmcp(5)} | 352
+mPag | &Operacoes | (sem ação) | 353
+mFinBcoCta | &Inclusão | { || manban(1)} | 354
+mFinBcoCta | &Alteração | { || manban(2)} | 355
+mFinBcoCta | &Consulta | { || manban(3)} | 356
+mFinBcoCta | &Exclusão | { || manban(4)} | 357
+mFinBcoCta | &Listagem | { || manban(5)} | 358
+mFinBcoCta | &Exercicio | { || manban(6)} | 359
+mBan | &Conta | (sem ação) | 360
+mFinFluxoHis | &Inclusão | { || manhib(1)} | 361
+mFinFluxoHis | &Alteração | { || manhib(2)} | 362
+mFinFluxoHis | &Consulta | { || manhib(3)} | 363
+mFinFluxoHis | &Exclusão | { || manhib(4)} | 364
+mFinFluxoHis | &Listagem | { || manhib(5)} | 365
+mBan | &Historico | (sem ação) | 366
+mFinBcoMov | &Inclusão | { || manlab(1)} | 367
+mFinBcoMov | &Alteração | { || manlab(2)} | 368
+mFinBcoMov | &Consulta | { || manlab(3)} | 369
+mFinBcoMov | &Exclusão | { || manlab(4)} | 370
+mFinBanMovLis | &Analitico | { || manlab(5,1)} | 371
+mFinBanMovLis | &Sintetico | { || manlab(5,2)} | 372
+mFinBanMovLis | &Conciliar | { || manlab(5,3)} | 373
+mFinBanMovLis | &Extrato | { || manlab(5,4)} | 374
+mFinBcoMov | &Listagem | (sem ação) | 375
+mFinBcoMov | &Conciliar | { || manlab(6)} | 376
+mBan | &Movimento | (sem ação) | 377
+mFinBcoCheDup | &Inclusão | { || manche(1)} | 378
+mFinBcoCheDup | &Alteracao | { || manche(2)} | 379
+mFinBcoCheCon | &Cheque | { || manche(3,1)} | 380
+mFinBcoCheCon | &Fornecedor | { || manche(3,2)} | 381
+mFinBcoCheDup | &Consulta | (sem ação) | 382
+mFinBcoCheDup | &Exclusao | { || manche(4)} | 383
+mFinBcoCheDup | &Listagem | { || manche(5)} | 384
+mFinBcoCheOut | &Emissao | { || manche(6,1)} | 385
+mFinBcoCheOut | &Copia | { || manche(6,2)} | 386
+mFinBcoCheOut | &Elimina | { || manche(6,3)} | 387
+mFinBcoCheDup | &Outros | (sem ação) | 388
+mFinBcoCheDup | &Liberacao | { || manche(7)} | 389
+mBan | &Cheque | (sem ação) | 390
+mFinBcoChePre | &Inclusão | { || manprd(1)} | 391
+mFinBcoChePre | &Alteracao | { || manprd(2)} | 392
+mFinBcoChePreCon | &Cheque | { || manprd(3,1)} | 393
+mFinBcoChePreCon | &Banco | { || manprd(3,2)} | 394
+mFinBcoChePreCon | &Emissao | { || manprd(3,3)} | 395
+mFinBcoChePreCon | &Vencimento | { || manprd(3,4)} | 396
+mFinBcoChePreCon | &Cliente | { || manprd(3,5)} | 397
+mFinBcoChePreCon | &Valor | { || manprd(3,6)} | 398
+mFinBcoChePreCon | &Entrada | { || manprd(3,7)} | 399
+mFinBcoChePre | &Consulta | (sem ação) | 400
+mFinBcoChePre | &Exclusao | { || manprd(4)} | 401
+mFinBcoCheLis | &Cheque | { || manprd(5,1)} | 402
+mFinBcoCheLis | &Banco | { || manprd(5,2)} | 403
+mFinBcoCheLis | &Emissao | { || manprd(5,3)} | 404
+mFinBcoCheLis | &Vencimento | { || manprd(5,4)} | 405
+mFinBcoCheLis | &Cliente | { || manprd(5,5)} | 406
+mFinBcoCheLis | &Entrada | { || manprd(5,6)} | 407
+mFinBcoChePre | &Listagem | (sem ação) | 408
+mFinBcoChePre | &Baixa | { || manprd(6)} | 409
+mBan | &Cheque Pre | (sem ação) | 410
+mFinFluxoApl | &Inclusão | { || manplx(1)} | 418
+mFinFluxoApl | &Alteração | { || manplx(2)} | 419
+mFinFluxoApl | &Consulta | { || manplx(3)} | 420
+mFinFluxoApl | &Exclusão | { || manplx(4)} | 421
+mFinFluxoApl | &Listagem | { || manplx(5)} | 422
+mCai | &Aplicação | (sem ação) | 423
+mFinBcoHis | &Inclusão | { || manhix(1)} | 424
+mFinBcoHis | &Alteração | { || manhix(2)} | 425
+mFinBcoHis | &Consulta | { || manhix(3)} | 426
+mFinBcoHis | &Exclusão | { || manhix(4)} | 427
+mFinBcoHis | &Listagem | { || manhix(5)} | 428
+mCai | &Historico | (sem ação) | 429
+mFinFluxoMov | &Inclusão | { || manlax(1)} | 430
+mFinFluxoMov | &Alteração | { || manlax(2)} | 431
+mFinFluxoMov | &Consulta | { || manlax(3)} | 432
+mFinFluxoMov | &Exclusão | { || manlax(4)} | 433
+mFinFluxoLis | &Periodo | { || manlax(5,1)} | 434
+mFinFluxoLis | &Contas | { || manlax(5,2)} | 435
+mFinFluxoMov | &Listagem | (sem ação) | 436
+mCai | &Fluxo de Caixa | (sem ação) | 437
+mCaiAnalitic | &Titulos | { || mananx(1)} | 438
+mCaiAnalitic | &Aplicacao | { || mananx(2)} | 439
+mCaiAnalitic | &Caixa | { || mananx(3)} | 440
+mCai | &Analitico | (sem ação) | 441
+mCaiSintetic | &Titulos | { || mansix(1)} | 442
+mCaiSintetic | &Aplicacao | { || mansix(2)} | 443
+mCai | &Sintetico | (sem ação) | 444
+mCai | &Resultado | { || demonx()} | 445
+mFatCve | &Inclusão | { || mancve(1)} | 446
+mFatCve | &Alteração | { || mancve(2)} | 447
+mFatCve | &Consulta | { || mancve(3)} | 448
+mFatCve | &Exclusão | { || mancve(4)} | 449
+mFatCve | &Listagem | { || mancve(5)} | 450
+mOut | &Convenios | (sem ação) | 451
+mFisCfop | &Inclusão | { || manfis(1)} | 452
+mFisCfop | &Alteração | { || manfis(2)} | 453
+mFisCfop | &Consulta | { || manfis(3)} | 454
+mFisCfop | &Exclusão | { || manfis(4)} | 455
+mFisCfop | &Listagem | { || manfis(5)} | 456
+mOut | &CFOP Fiscal | (sem ação) | 457
+mFisCfop | &Resumo ICMS | { || manapu(1)} | 458
+mFisCfop | &Livro ICMS | { || manapu(2)} | 459
+mFisCfop | &Apuracao ICMS | { || manapu(3)} | 460
+mFisCfop | &Pis/Cofins | { || manapu(4)} | 461
+mFisCfop | &Sped ICMS | { || manapu(5)} | 462
+mOut | &Fiscal | (sem ação) | 463
+mOutUsu | &Inclusão | { || manlog(1)} | 464
+mOutUsu | &Alteração | { || manlog(2)} | 465
+mOutUsu | &Consulta | { || manlog(3)} | 466
+mOutUsu | &Exclusão | { || manlog(4)} | 467
+mOutUsu | &Restricoes | { || manlog(5)} | 468
+mOut | &Usuarios | (sem ação) | 469
+mOut | &Salva Configuração | { || salvaconf() } | 469

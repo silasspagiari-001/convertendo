@@ -47,3 +47,12 @@ cada opção vira um diálogo HwGUI que chama a mesma lógica.
 4. Separar a lógica de `INCCLI`, `ALTCLI`, `CONCLI` e `EXCCLI` da tela.
 5. Criar os diálogos HwGUI do cadastro de clientes, um por opção.
 6. Testar com cópia dos dados e aprovação do cliente antes de substituir a versão em produção.
+
+## 6. Achados do passo 2 (tabela de menu)
+
+- 455 opções ativas em `NOVOMENU`: 374 com ação direta e 81 que só abrem submenu (todas verificadas).
+- `mFisCfop` é reutilizada: "CFOP Fiscal" e "Fiscal" apontam para menus diferentes. O gerador resolve por instância.
+- `mFinBanMovLis` (opções Analítico, Sintético, Conciliar, Extrato, função `manlab`) é criado, mas nunca ligado ao menu. Essas 4 opções não aparecem hoje no sistema. Confirmar com o cliente se devem ser mantidas.
+- `interface/menu_minigui.prg` é a proposta gerada para o MiniGUI (373 opções alcançáveis). Não está no `atlas.xDev`. Precisa de compilação e teste.
+
+**Decisão:** as opções de `mFinBanMovLis` (Analítico, Sintético, Conciliar, Extrato) ficam fora da migração. O menu gerado não as inclui.
