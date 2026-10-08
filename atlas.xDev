@@ -1,0 +1,140 @@
+<!--
+################################################
+# xDevStudio Project - xdev@kssoftware.com.br  #
+# Created @ 02/10/2026 11:04:59                #
+#                                              #
+### Standard xDev Config - Layout v1.5 #########
+-->
+<project>
+   <option compiler="344833">
+   <option outputname="Atlas">
+   <option targettype="EXE">
+   <option outputpath="">
+   <option root="($)">
+   <option runpath="">
+   <option runparams="">
+   <option pathch="">
+   <option pathlib="">
+   <option pathobj="">
+   <option pathtooutput="">
+   <option defines="">
+   <option webframework="">
+   <option webrootdir="">
+   <option documentroot="">
+   <option custombrowser="">
+   <option makeincfile="Não">
+   <option taskprepare="">
+   <option taskfinalize="">
+   <option taskgroupprepare="">
+   <option taskgroupfinalize="">
+
+   <compilerparam name="Harbour.xCompiler">
+      <option presetsname="344833">
+      <option rdd4="Sim">
+      <option fguilib="Gtwvt">
+   </compilerparam>
+
+   <unit filename="MENUAGRO.PRG" main="true" compile="Sim" prg_disabledebug="Sim">
+   <unit filename="funcoes_novas.prg" compile="Sim">
+   <unit filename="FALTA.PRG" compile="Sim">
+   <unit filename="ACBR.PRG" compile="Sim">
+   <unit filename="ACBr_ARQ.PRG" compile="Sim">
+   <unit filename="ACBr_ECF.PRG" compile="Sim">
+   <unit filename="ACBr_FUN.PRG" compile="Sim">
+   <unit filename="ACBR_MON.PRG" compile="Sim">
+   <unit filename="ACBR_NFE.PRG" compile="Sim">
+   <unit filename="ACBr_XML.PRG" compile="Sim">
+   <unit filename="AJUDA.PRG" compile="Sim">
+   <unit filename="ARQUIVOS.PRG" compile="Sim">
+   <unit filename="EAGRO12.PRG" compile="Sim">
+   <unit filename="EAGRO13.PRG" compile="Sim">
+   <unit filename="EAGRO14.PRG" compile="Sim">
+   <unit filename="EAGRO15.PRG" compile="Sim">
+   <unit filename="EAGRO16.PRG" compile="Sim">
+   <unit filename="EAGRO17.PRG" compile="Sim">
+   <unit filename="EAGRO19.PRG" compile="Sim">
+   <unit filename="EAGRO21.PRG" compile="Sim">
+   <unit filename="EAGRO21E.PRG" compile="Sim">
+   <unit filename="EAGRO21F.PRG" compile="Sim">
+   <unit filename="EAGRO22.PRG" compile="Sim">
+   <unit filename="EAGRO23.PRG" compile="Sim">
+   <unit filename="EAGRO24.PRG" compile="Sim">
+   <unit filename="EAGRO25.PRG" compile="Sim">
+   <unit filename="EAGRO26.PRG" compile="Sim">
+   <unit filename="EAGRO27.PRG" compile="Sim">
+   <unit filename="EAGRO28.PRG" compile="Sim">
+   <unit filename="EAGRO29.PRG" compile="Sim">
+   <unit filename="EAGRO31.PRG" compile="Sim">
+   <unit filename="EAGRO32.PRG" compile="Sim">
+   <unit filename="EAGRO33.PRG" compile="Sim">
+   <unit filename="EAGRO34.PRG" compile="Sim">
+   <unit filename="EAGRO35.PRG" compile="Sim">
+   <unit filename="EAGRO36.PRG" compile="Sim">
+   <unit filename="EAGRO37.PRG" compile="Sim">
+   <unit filename="EAGRO41.PRG" compile="Sim">
+   <unit filename="EAGRO42.PRG" compile="Sim">
+   <unit filename="EAGRO43.PRG" compile="Sim">
+   <unit filename="EAGRO44.PRG" compile="Sim">
+   <unit filename="EAGRO45.PRG" compile="Sim">
+   <unit filename="EAGRO46.PRG" compile="Sim">
+   <unit filename="EAGRO51.PRG" compile="Sim">
+   <unit filename="EAGRO52.PRG" compile="Sim">
+   <unit filename="EAGRO53.PRG" compile="Sim">
+   <unit filename="EAGRO54.PRG" compile="Sim">
+   <unit filename="EAGRO55.PRG" compile="Sim">
+   <unit filename="EAGRO56.PRG" compile="Sim">
+   <unit filename="EAGRO61.PRG" compile="Sim">
+   <unit filename="EAGRO62.PRG" compile="Sim">
+   <unit filename="EAGRO63.PRG" compile="Sim">
+   <unit filename="EAGRO64.PRG" compile="Sim">
+   <unit filename="EAGRO65.PRG" compile="Sim">
+   <unit filename="EAGRO66.PRG" compile="Sim">
+   <unit filename="EAGRO71.PRG" compile="Sim">
+   <unit filename="EAGRO72.PRG" compile="Sim">
+   <unit filename="EAGRO73.PRG" compile="Sim">
+   <unit filename="EAGRO74.PRG" compile="Sim">
+   <unit filename="EAGRO75.PRG" compile="Sim">
+   <unit filename="EAGRO76.PRG" compile="Sim">
+   <unit filename="EAGRO77.PRG" compile="Sim">
+   <unit filename="FUNCOES.PRG" compile="Sim" prg_disabledebug="Sim">
+   <unit filename="INDICES.PRG" compile="Sim" prg_disabledebug="Sim">
+   <unit filename="IMPRE.PRG" compile="Sim">
+   <unit filename="LERDANFE.PRG" compile="Sim">
+   <unit filename="REMESSA.PRG" compile="Sim">
+   <unit filename="XML.PRG" compile="Sim">
+   <unit filename="XMLCOR.PRG" compile="Sim">
+   <unit filename="XMLSAT.PRG" compile="Sim">
+   <unit filename="SPEDFIS.PRG" compile="Sim">
+   <unit filename="PISCOF.PRG" compile="Sim">
+   <unit filename="LERXML.PRG" compile="Sim">
+   <unit filename="LERSAT.PRG" compile="Sim">
+   <unit filename="RELTELA.PRG" compile="Sim" prg_disabledebug="Sim">
+   <unit filename="AABOT.PRG" compile="Sim">
+   <unit filename="ALT.PRG" compile="Sim">
+   <unit filename="ERRORSYS.PRG" compile="Sim" prg_disabledebug="Sim">
+   <unit filename="browse.prg" compile="Sim">
+   <unit filename="EAGRO11.PRG" compile="Sim">
+   <unit filename="hbgtwvg.ch" compile="Sim">
+   <unit filename="dbfcdx.lib" compile="Sim">
+   <unit filename="sixcdx.lib" compile="Sim">
+   <unit filename="bmsixcdx.lib" compile="Sim">
+   <unit filename="hsx.lib" compile="Sim">
+   <unit filename="hwgui.lib" compile="Sim">
+   <unit filename="import32.lib" compile="Sim">
+   <unit filename="fbclient_bor.lib" compile="Sim">
+   <unit filename="hwgdebug.lib" compile="Sim">
+   <unit filename="debug.lib" compile="Sim">
+   <unit filename="adodb.dll" compile="Sim">
+   <unit filename="novos.c" compile="Sim" prg_disabledebug="Sim">
+   <unit filename="SQLBASE.C" compile="Sim" prg_disabledebug="Sim">
+   <unit filename="SQLMIX.C" compile="Sim" prg_disabledebug="Sim">
+   <unit filename="FIREBIRD.C" compile="Sim" prg_disabledebug="Sim">
+   <unit filename="SDDODBC.C" compile="Sim" prg_disabledebug="Sim">
+   <unit filename="sddfb.c" compile="Sim" prg_disabledebug="Sim">
+   <unit filename="CALENDAR.PRG" compile="Sim">
+   <unit filename="tfirebird.prg" compile="Sim">
+   <unit filename="hbodbc.lib" compile="Sim">
+   <unit filename="gtwvw.lib" compile="Sim">
+   <unit filename="GdiPlus.lib" compile="Sim">
+   <unit filename="VLIB.PRG" compile="Sim">
+</project>
